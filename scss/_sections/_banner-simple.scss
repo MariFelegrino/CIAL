@@ -1,0 +1,14 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+
+.banner-simple{
+    aspect-ratio: 1280/1050;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @include m.tablet{
+        aspect-ratio: 1280/550;
+    }
+}

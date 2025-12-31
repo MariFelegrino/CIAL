@@ -1,0 +1,83 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+.carousel-testimonios{
+    background-color: v.$arena-clara;
+    padding: 65px 0;
+    @include m.tablet-xl{
+        padding: 72px 0;
+    }
+    &__carousel{
+        padding-top: 55px;
+        .owl-stage, .owl-item, .item{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item{
+            align-items: flex-start;
+        }
+        .owl-item{
+            align-items: flex-start;
+            @include m.tablet-xl{
+                align-items: center;
+            }
+        }
+        .item-testimony{
+            display: flex;
+            flex-direction: column;
+            gap: 40px 16px;
+            @include m.tablet-xl{
+                flex-direction: row;
+                align-items: flex-end;
+            }
+            &__img{
+                aspect-ratio: 365/225;
+                border-radius: 10px;
+                overflow: hidden;
+                @include m.tablet-xl{
+                    flex: 1;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                @include m.tablet-xl{
+                    aspect-ratio: 239/316;
+                    border-radius: 18px;
+                    align-self: center;
+
+                }
+            }
+            &__testimony{
+                @include t.body1;
+                color: v.$gris-humo-calido;
+                text-align: center;
+                @include m.tablet-xl{
+                    flex: 1;
+                    text-align: left;
+                }
+                p{
+
+                }
+                span{
+                    position: relative;
+                    display: inline-block;
+                    padding-left: 20px;
+                    &:after{
+                        content: "";
+                        width: 12px;
+                        height: 1px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 0;
+                        margin-bottom: 8px;
+                        background-color: v.$gris-humo-calido;
+                    }
+                }
+            }
+        }
+    }
+}

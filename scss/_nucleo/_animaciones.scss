@@ -1,0 +1,67 @@
+/* ============================
+   ESTADO INICIAL (viewport)
+=============================== */
+
+/* .animatable .item {
+    opacity: 0;
+    transform: translateY(40px);
+    clip-path: inset(0 0 100% 0); // cortinilla vertical cerrada
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        clip-path 1s ease;
+} */
+
+/* ============================
+   ACTIVO AL ENTRAR AL VIEWPORT
+=============================== */
+
+/* .animatable.active .item {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0); // se abre la cortinilla
+} */
+
+/* ============================
+   STAGGER AUTOMÁTICO
+=============================== */
+/* .animatable.active .item { 
+    transition-delay: .2s; 
+} */
+/* ============================
+   ANIMACIÓN AL CAMBIAR SLIDE
+=============================== */
+/* Cuando Owl activa la animación del slide actual, evita animación doble */
+/* .owl-item.active:not(.slide-animate) .item {
+    animation: fadeUp 1s ease forwards;
+} */
+
+/* Keyframe para animación por slide */
+/* @keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+
+/* Asegura que la animación solo corra cuando tenga la clase */
+.slide-animate {
+    animation: fadeUp .8s ease forwards;
+    opacity: 1;
+}
+
+/* Animación base: Fade + Slide Up */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

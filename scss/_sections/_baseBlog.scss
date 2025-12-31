@@ -1,0 +1,93 @@
+.btnChevron, .blog-container__pagination .pagination .next, .blog-container__pagination .pagination .prev {
+  border-color: #5D5D5D;
+  background-color: #FFFFFF;
+}
+.btnChevron .icon_pagination, .blog-container__pagination .pagination .next .icon_pagination, .blog-container__pagination .pagination .prev .icon_pagination {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  background-color: transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.btnChevron .icon_pagination svg, .blog-container__pagination .pagination .next .icon_pagination svg, .blog-container__pagination .pagination .prev .icon_pagination svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.blog-container__pagination {
+  position: relative;
+  margin: 40px auto;
+}
+.blog-container__pagination .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.blog-container__pagination .pagination li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.blog-container__pagination .pagination li a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  height: 35px;
+  line-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: #5D5D5D;
+  background-color: rgba(172, 184, 196, 0.2);
+  border: 1px solid rgba(172, 184, 196, 0.09);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.blog-container__pagination .pagination li a svg .st0 {
+  fill: #5D5D5D;
+}
+.blog-container__pagination .pagination li a.active {
+  background-color: #191927;
+  color: #FFFFFF;
+  border: 1px solid #191927;
+}
+.blog-container__pagination .pagination li a:hover:not(.active) {
+  background-color: #191927;
+  border: 1px solid #191927;
+  color: #FFF;
+}
+.blog-container__pagination .pagination li a:hover svg .st0 {
+  fill: #FFF;
+}
+.blog-container__pagination .pagination .prev svg {
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
+}
+.blog-container__pagination .pagination .next svg {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}

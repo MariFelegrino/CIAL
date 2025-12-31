@@ -1,0 +1,96 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+.image-description{
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        @include m.styleBase;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        gap: 40px;
+        @include m.tablet{
+            gap: 0 30px;
+        }
+    }
+    &__left-side,
+    &__right-side{
+        @include m.styleBase;
+        @include m.tablet{
+            width: calc((100% - 30px) / 2);
+        }
+    }
+    &__left-side{
+        padding: 0 12px;
+        @include m.tablet{
+            padding-right: 20px;
+            padding-left: 8.6%;
+            &::after{
+                content: "";
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="476" viewBox="0 0 15 476"><g id="Grupo_2063" data-name="Grupo 2063" transform="translate(0 -825)"><rect id="Rectángulo_196" data-name="Rectángulo 196" width="15" height="159" transform="translate(0 825)" fill="%230091d4"/><rect id="Rectángulo_197" data-name="Rectángulo 197" width="15" height="158" transform="translate(0 984)" fill="%23fdc500"/><rect id="Rectángulo_198" data-name="Rectángulo 198" width="15" height="159" transform="translate(0 1142)" fill="%23b1126f"/></g></svg>');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: absolute;
+                width: 12px;
+                height: 100%;
+                left: 0;
+                top: 0;
+                @include m.laptop{
+                    width: 15px;
+                }
+
+            }
+        }
+        .text-block{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @include m.tablet{
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+        }
+    }
+    &__right-side{
+        padding-bottom: 70.5%;
+        overflow: hidden;
+        @include m.tablet{
+            border-radius: 10px;
+            padding-bottom: 35.21%;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+        
+    }
+    &.block--center{
+        .image-description__right-side{
+            border-radius: 10px;
+            padding-bottom: 106.23%;
+            overflow: hidden;
+            @include m.tablet{
+                padding-bottom: 35.21%;
+            }
+        }
+        .image-description__left-side{
+            padding: 0;
+            @include m.tablet{
+                &::after{
+                    content:none;
+                }
+            }
+        }
+    }
+}

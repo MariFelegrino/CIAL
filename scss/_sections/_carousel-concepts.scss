@@ -1,0 +1,63 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+
+.concepts-carousel{
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        @include m.styleBase;
+    }
+    &__carousel{
+        padding-top: 50px;
+        .item-concept-wrap{
+            @include m.styleBase;
+        }
+        .item-concept{
+            @include m.styleBase;
+            display: flex;
+            gap: 22px;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            &__img{
+                width: 77px;
+                height: 77px;
+                position: relative;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            &__name{
+                h3{
+                    @include t.tituloH3;
+                    color: v.$azul-profundo;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+
+.concepts-carousel__carousel{
+    .item a {
+        transition: transform .25s ease, color .25s;
+        overflow: visible;
+        transform: scale(0.9);
+    }
+    .item:hover a {
+        transform: scale(1.02);
+    }
+    .item:hover .item-concept__name h3 {
+        color: v.$verde-musgo;
+    }
+}

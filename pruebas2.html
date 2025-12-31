@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Isotope + Owl Filters + Lightbox</title>
+
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+    }
+
+    /* FILTROS */
+    .filters {
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      background: #111;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      user-select: none;
+      transition: background .25s ease, transform .2s ease;
+    }
+
+    .filter-btn.is-active {
+      background: #007aff;
+    }
+
+    .filter-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* GRID */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -10px;
+    }
+
+    .grid-item {
+      width: 33.333%;
+      padding: 10px;
+    }
+
+    .grid-item img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .grid-item {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .grid-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FILTROS CON OWL -->
+<div class="filters owl-carousel">
+  <div class="filter-btn is-active" data-filter="*">Todos</div>
+  <div class="filter-btn" data-filter=".branding">Branding</div>
+  <div class="filter-btn" data-filter=".web">Web</div>
+  <div class="filter-btn" data-filter=".neon">Neón</div>
+</div>
+
+<!-- GRID ISOTOPE -->
+<div class="grid">
+
+  <a class="grid-item branding" href="https://picsum.photos/id/1015/1200/800">
+    <img src="https://picsum.photos/id/1015/600/400">
+  </a>
+
+  <div class="grid-item web">
+    <a href="https://picsum.photos/id/1016/1200/800" >
+      <img src="https://picsum.photos/id/1016/600/400">
+    </a>
+  </div>
+
+  <div class="grid-item neon">
+    <a href="https://picsum.photos/id/1018/1200/800" >
+      <img src="https://picsum.photos/id/1018/600/400">
+    </a>
+  </div>
+
+  <div class="grid-item branding neon">
+    <a href="https://picsum.photos/id/1020/1200/800" >
+      <img src="https://picsum.photos/id/1020/600/400">
+    </a>
+  </div>
+
+  <div class="grid-item web">
+    <a href="https://picsum.photos/id/1024/1200/800" >
+      <img src="https://picsum.photos/id/1024/600/400">
+    </a>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="scripts/imagesloaded-4.1.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+    /* OWL FILTROS */
+    $('.filters').owlCarousel({
+        autoWidth: true,
+        margin: 12,
+        dots: false,
+        nav: true,
+        navText: [
+            `<div class='arrow'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </div>`,
+            `<div class='arrow'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </div>`
+        ],
+        responsive:{
+            0:{
+                items:1,
+            },
+            600:{
+                items:2,
+            }
+        }
+    });
+
+    const $grid = $('.grid');
+
+    /* ESPERAR A QUE CARGUEN IMÁGENES */
+    $grid.imagesLoaded(function () {
+
+        $grid.isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        transitionDuration: '0.4s'
+        });
+
+    });
+
+    /* CLICK FILTRO */
+    $('.filter-btn').on('click', function () {
+        const filterValue = $(this).data('filter');
+
+        $('.filter-btn').removeClass('is-active');
+        $(this).addClass('is-active');
+
+        $grid.isotope({ filter: filterValue });
+    });
+
+    });
+</script>
+
+
+</body>
+</html>

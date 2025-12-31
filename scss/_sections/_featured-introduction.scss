@@ -1,0 +1,94 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+@use "sass:map";
+
+.featured-introduction{
+    @include m.styleBase;
+    background-color: v.$arena-clara;
+    padding: 65px 0;
+    @include m.tablet{
+        padding: 0;
+    }
+    $paddings-left:(
+        tablet: calc((100% - (696px)) / 2),
+        tablet-xl: calc((100% - (936px)) / 2),
+        laptop: calc((100% - (78.4375%)) / 2),
+        desktop: calc((100% - (1320px - 24px)) / 2)
+    );
+        
+    &__inner{
+        display: flex;
+        gap: 40px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        @include m.tablet{
+            gap: 36px;
+            flex-direction: row-reverse;
+        }
+    }
+    &__img{
+            /* aspect-ratio: 632 / 647; */
+            overflow: hidden;
+            display: flex;
+            flex-grow: 1;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            padding-bottom: 100%;
+            @include m.tablet{
+                width: 50%;
+                width: calc((100% - 36px) / 2);
+                padding-bottom: calc((100% - 36px) / 2);
+                height: auto;
+            }
+            img{
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                display: flex;
+                flex-grow: 1;
+                height: 100%;
+                position: absolute;
+            }
+        }
+        &__txt{
+            padding: 0 12px;
+            text-align: center;
+            width: 100%;
+            @include m.tablet{
+                text-align: left;
+                padding: 50px 0;
+                width: calc((100% - 36px) / 2);
+                padding-left: map.get( $paddings-left, tablet);
+                align-self: center;
+            }
+            @include m.tablet-xl{
+                padding: 75px 0;
+                padding-left: map.get( $paddings-left, tablet-xl);
+            }
+            @include m.laptop{
+                padding-left: map.get( $paddings-left, laptop);
+            }
+            @include m.desktop{
+                padding-left: map.get( $paddings-left, desktop);
+            }
+            .superindex{
+                color: v.$gris-humo-calido;
+            }
+            .ttl-block{
+                color: v.$azul-noche;
+            }
+            .description-block{
+                color: v.$gris-humo-calido;
+            }
+            .btn-basic{
+                color: v.$azul-noche;
+            }
+        }
+}
+
+
+

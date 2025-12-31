@@ -1,0 +1,36 @@
+@use "_sections/main-banner";
+@use "_sections/banner-interno";
+@use "_nucleo/botones";
+@use "_nucleo/nabvar";
+@use "_nucleo/general";
+@use "_nucleo/animaciones";
+
+@use "_sections/resource-counters";
+@use "_sections/carousel-featured";
+@use "_sections/carousel-targets";
+@use "_sections/featured-cards";
+@use "_sections/banner-simple";
+@use "_sections/carousel-concepts";
+@use "_sections/articles_cards";
+@use "_sections/block-informativo";
+@use "_sections/secondary-banner";
+@use "_sections/image-description";
+@use "_sections/carousel-testimonys";
+@use "_sections/accordion";
+@use "_sections/equipment";
+@use "_sections/carousel-thoughts";
+@use "_sections/carousel-values";
+@use "_sections/carousel-workshops";
+@use "_sections/experience";
+@use "_sections/featured-introduction";
+@use "_sections/carousel-modals";
+@use "_sections/gallery";
+@use "_sections/text-embed";
+
+// ADD Salvador
+@use "_sections/carousel-highlights";
+@use "_sections/initial-block";
+@use "_sections/cta-banner-description";
+
+
+@use "_nucleo/footer";

@@ -1,0 +1,100 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+.featured-cards{
+    padding: 65px 0;
+    &.top-block{
+            top: -260px;
+            position: relative;
+            margin-bottom: -260px;
+        }
+    @include m.tablet{
+        padding: 72px 0;
+        &.top-block{
+            top: -200px;
+            margin-bottom: -200px;
+        }
+    }
+    &__inner{
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap;
+        @include m.tablet{
+            gap: 0 30px;
+            /* padding-bottom: 35px; */
+        }
+        .item-featured-card-wrap{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 31px 31px 0 0;
+            @include m.tablet{
+                width: calc((100% - 30px) / 2);
+                /* padding-top: 75px; */
+                /* margin-bottom: -35px; */
+                margin-top: 35px;
+                overflow: hidden;
+                border-radius: 34px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+            .item-featured-card{
+                width: 100%;
+                aspect-ratio: 1;
+                border-radius: 31px 31px 0 0;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                @include m.tablet-xl{
+                    border-radius: 34px;
+                }
+                &::before{
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-image: inherit;
+                    background-size: cover;
+                    background-position: inherit;
+                    transform: scale(1.15);
+                    transition: transform .7s cubic-bezier(.3,.6,.15,1);
+                    border-radius: inherit;
+                }
+            }
+            .item-featured-card-txt{
+                /* background-color: transparentize($color: v.$azul-noche, $amount: 0.08); */
+                background-color: color.adjust(v.$azul-noche, $alpha: -0.08);
+                backdrop-filter: blur(11px) brightness(1.5);
+                padding: 20px 43px;
+                color: v.$blanco;
+                @include t.body3;
+                p{
+                    margin-bottom: 0;
+                }
+                @include m.tablet-xl{
+                    /* background-color: transparentize($color: v.$azul-noche, $amount: 0.20); */
+                    background-color: color.adjust(v.$azul-noche, $alpha: -0.20);
+                    position: absolute;
+                    bottom: 22px;
+                }
+            }
+            @include m.tablet{
+                &:nth-child(odd){
+                    top: -75px;
+                }
+            }
+            @include m.laptop{
+                &:hover{
+                    .item-featured-card{
+                        &::before{
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

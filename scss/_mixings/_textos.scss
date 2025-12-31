@@ -1,0 +1,182 @@
+@use "./mixings" as m;
+@use "../_variables/variables" as v;
+
+/* @mixin tituloH1 {
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 28px;
+    letter-spacing: 0;
+    @include m.tablet-xl{
+        font-size: 36px;
+    }
+} */
+@mixin tituloH1 {
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 26px;
+    letter-spacing: 0;
+    @include m.mobile-l{
+        font-size: 28px;
+    }
+    @include m.tablet{
+        font-size: 30px;
+    }
+    @include m.tablet-xl{
+        font-size: 32px;
+    }
+    @include m.laptop{
+        font-size: 36px;
+    }
+}
+
+@mixin superindex{
+    @include m.sora-regular;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    @include m.tablet{
+        font-size: 18px;
+        letter-spacing: 0.9px;
+    }
+}
+
+@mixin tituloH2 {
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 21px;
+    letter-spacing: 0;
+    line-height: 2rem;
+    text-wrap-style: pretty;
+    word-break: auto-phrase;
+    @include m.mobile-l{
+        font-size: 24px;
+    }
+}
+
+@mixin descripcionFeatured {
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 21px;
+    letter-spacing: 0;
+    @include m.mobile-l{
+        font-size: 26px;
+    }
+}
+
+@mixin body1 {
+    @include m.sora-regular;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.36px;
+    @include m.mobile-l{
+        font-size: 18px;
+    }
+    @include m.tablet{
+        font-size: 16px;
+        letter-spacing: 0.32px;
+    }
+    @include m.laptop{
+        font-size: 18px;
+        letter-spacing: 0.36px;
+    }
+}
+
+@mixin tituloH3-Simple{
+    @include m.sora-medium;
+    @include m.slice;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+    @include m.mobile-l{
+        font-size: 20px;
+        letter-spacing: 0.4px;
+    }
+    @include m.tablet{
+        font-size: 18px;
+        letter-spacing: 0.36px;
+    }
+}
+
+@mixin tituloH3{
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 21px;
+    letter-spacing: 0;
+    line-height: 2rem;
+    text-wrap-style: pretty;
+    word-break: auto-phrase;
+    @include m.mobile-l{
+        font-size: 24px;
+    }
+    @include m.tablet{
+        font-size: 22px
+    }
+}
+
+@mixin body2 {
+    @include m.sora-light;
+    @include m.slice;
+    font-size: 15px;
+    letter-spacing: 1.26px;
+    @include m.mobile-l{
+        font-size: 18px;
+        letter-spacing: 1.26px;
+    }
+    @include m.tablet{
+        font-size: 14px;
+        letter-spacing: 0.98px;
+    }
+    @include m.laptop{
+        font-size: 16px;
+        letter-spacing: 1.10px;
+    }
+}
+
+@mixin body3{
+    @include m.sora-light;
+    @include m.slice;
+    font-size: 14px;
+    letter-spacing: 1.12px;
+    @include m.mobile-l{
+        font-size: 16px;
+        letter-spacing: 1.12px;
+    }
+    @include m.laptop{
+        font-size: 17px;
+    }
+}
+
+@mixin linksFooter {
+    @include m.sora-regular;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.38px;
+    @include m.mobile-l{
+        font-size: 18px;
+        letter-spacing: 0.28px;
+    }
+    @include m.tablet{
+        font-size: 14px;
+    }
+}
+
+@mixin TtllinksFooter {
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 20px;
+    letter-spacing: 0.23px;
+    @include m.mobile-l{
+        font-size: 22px;
+    }
+    @include m.tablet{
+        font-size: 18px;
+        letter-spacing: 0px;
+    }
+}
+
+@mixin smallText {
+    @include m.sora-semibold;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.98px;
+}

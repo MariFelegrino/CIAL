@@ -1,0 +1,21 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+.block-informativo{
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        @include m.tablet{
+            max-width: 83.0677%; //equivalente a 834px en el contenedor de 1004px
+            margin: 0 auto;
+        }
+        .description-block{
+            text-align: left;
+        }
+    }
+}
+
+

@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'Sora-Bold';
+    src: url('../fonts/Sora/Sora-Bold/Sora-Bold.eot');
+    src: url('../fonts/Sora/Sora-Bold/Sora-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-Bold/Sora-Bold.otf') format('otf')
+        url('../fonts/Sora/Sora-Bold/Sora-Bold.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-Bold/Sora-Bold.woff') format('woff'),
+        url('../fonts/Sora/Sora-Bold/Sora-Bold.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-Bold/Sora-Bold.svg#Sora-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-ExtraLight';
+    src: url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.eot');
+    src: url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.otf') format('otf')
+        url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.woff') format('woff'),
+        url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-ExtraLight/Sora-ExtraLight.svg#Sora-ExtraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-ExtraBold';
+    src: url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.eot');
+    src: url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.otf') format('otf')
+        url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.woff') format('woff'),
+        url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-ExtraBold/Sora-ExtraBold.svg#Sora-ExtraBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-Light';
+    src: url('../fonts/Sora/Sora-Light/Sora-Light.eot');
+    src: url('../fonts/Sora/Sora-Light/Sora-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-Light/Sora-Light.otf') format('otf')
+        url('../fonts/Sora/Sora-Light/Sora-Light.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-Light/Sora-Light.woff') format('woff'),
+        url('../fonts/Sora/Sora-Light/Sora-Light.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-Light/Sora-Light.svg#Sora-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-Regular';
+    src: url('../fonts/Sora/Sora-Regular/Sora-Regular.eot');
+    src: url('../fonts/Sora/Sora-Regular/Sora-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-Regular/Sora-Regular.otf') format('otf')
+        url('../fonts/Sora/Sora-Regular/Sora-Regular.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-Regular/Sora-Regular.woff') format('woff'),
+        url('../fonts/Sora/Sora-Regular/Sora-Regular.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-Regular/Sora-Regular.svg#Sora-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-Medium';
+    src: url('../fonts/Sora/Sora-Medium/Sora-Medium.eot');
+    src: url('../fonts/Sora/Sora-Medium/Sora-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-Medium/Sora-Medium.otf') format('otf')
+        url('../fonts/Sora/Sora-Medium/Sora-Medium.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-Medium/Sora-Medium.woff') format('woff'),
+        url('../fonts/Sora/Sora-Medium/Sora-Medium.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-Medium/Sora-Medium.svg#Sora-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-SemiBold';
+    src: url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.eot');
+    src: url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.otf') format('otf')
+        url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.woff') format('woff'),
+        url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-SemiBold/Sora-SemiBold.svg#Sora-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora-Thin';
+    src: url('../fonts/Sora/Sora-Thin/Sora-Thin.eot');
+    src: url('../fonts/Sora/Sora-Thin/Sora-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Sora/Sora-Thin/Sora-Thin.otf') format('otf')
+        url('../fonts/Sora/Sora-Thin/Sora-Thin.woff2') format('woff2'),
+        url('../fonts/Sora/Sora-Thin/Sora-Thin.woff') format('woff'),
+        url('../fonts/Sora/Sora-Thin/Sora-Thin.ttf') format('truetype'),
+        url('../fonts/Sora/Sora-Thin/Sora-Thin.svg#Sora-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Courgette-Regular';
+    src: url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.eot');
+    src: url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.otf') format('otf')
+        url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.woff2') format('woff2'),
+        url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.woff') format('woff'),
+        url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.ttf') format('truetype'),
+        url('../fonts/Courgette/Courgette-Regular/Courgette-Regular.svg#Courgette-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

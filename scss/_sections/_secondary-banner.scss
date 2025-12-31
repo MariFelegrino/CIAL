@@ -1,0 +1,40 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "sass:color";
+
+.secondary-banner{
+    aspect-ratio: 1280/480;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    padding: 75px 0;
+    &::after{
+        @include m.after;
+        /* background-color: transparentize($color: v.$azul-noche, $amount: 0.7); */
+        background-color: color.adjust(v.$azul-noche, $alpha: -0.7);
+        z-index: 2;
+    }
+    &__content{
+        position: relative;
+        text-align: center;
+        z-index: 1000;
+        @include m.tablet{
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        @include m.laptop{
+            max-width: 50%;
+        }
+    }
+    &.animation{
+        background-attachment: fixed;
+    }
+}
+
+

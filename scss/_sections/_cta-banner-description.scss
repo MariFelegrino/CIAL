@@ -1,0 +1,65 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+
+.cta-banner-description{
+  @include m.relative;
+  &-inner{
+    @include m.relative;
+    z-index: 10;
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include m.tablet{
+      padding: 120px 15px;
+    }
+    &.screen-low::after{
+      content: "";
+      position:absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      background-color: rgb(#000, 0.2)
+    }
+    &.screen-medium::after{
+      content: "";
+      position:absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      background-color: rgb(#000, 0.4)
+    }
+    &.screen-high::after{
+      content: "";
+      position:absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      background-color: rgb(#000, 0.6)
+    }
+    .text-block{
+      z-index: 100;
+      @include m.tablet{
+        max-width: 550px
+      }
+      @include m.tablet-xl{
+        max-width: 750px
+      }
+      @include m.laptop{
+        max-width: 850px
+      }
+    }
+  }
+}

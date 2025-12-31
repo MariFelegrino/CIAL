@@ -1,0 +1,55 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+.articles{
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        @include m.styleBase;
+    }
+    &__items{
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px 16px;
+        .item-article{
+            @include m.styleBase;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            @include m.tablet{
+                width: calc((100% - 16px) / 2);
+            }
+            @include m.laptop{
+                width: calc((100% - 32px) / 3);
+            }
+            &__img{
+                border-radius: 10px;
+                overflow: hidden;
+                aspect-ratio: 324/220;
+                width: 100%;
+                img{
+                    width: 120%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    transition: all .5s ease-out;
+                    transform: scale(1.2);
+                }
+            }
+            &__info{
+                color: v.$azul-profundo;
+            }
+            &:hover{
+                .item-article__img img{
+                    width: 100%;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Galería responsive con filtros</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- LIGHTGALLERY -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
+
+<style>
+/* ================== RESET ================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ================== FILTROS ================== */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Botón */
+.filter-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .2s ease;
+}
+
+.filter-btn.is-active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 769px) {
+  .filters {
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 768px) {
+  .filters {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+}
+
+/* ================== GALERÍA ================== */
+.gallery__images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* ===== GALERÍA MÓVIL ===== */
+@media (max-width: 768px) {
+  .gallery__images {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .gallery-item {
+    min-width: 90%;
+    scroll-snap-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="gallery">
+  <div class="container">
+
+    <!-- FILTROS -->
+    <div class="filters">
+      <button class="filter-btn is-active" data-filter="*">Todos</button>
+      <button class="filter-btn" data-filter=".filtro1">Talleres</button>
+      <button class="filter-btn" data-filter=".filtro2">Retiros</button>
+      <button class="filter-btn" data-filter=".filtro3">Energía</button>
+      <button class="filter-btn" data-filter=".filtro4">Naturaleza</button>
+    </div>
+
+    <!-- GALERÍA -->
+    <div class="gallery__images">
+      <div class="gallery-item filtro1" data-src="https://picsum.photos/id/1015/800/600">
+        <img src="https://picsum.photos/id/1015/800/600" alt="">
+      </div>
+
+      <div class="gallery-item filtro2" data-src="https://picsum.photos/id/1025/800/600">
+        <img src="https://picsum.photos/id/1025/800/600" alt="">
+      </div>
+
+      <div class="gallery-item filtro3" data-src="https://picsum.photos/id/1035/800/600">
+        <img src="https://picsum.photos/id/1035/800/600" alt="">
+      </div>
+
+      <div class="gallery-item filtro1" data-src="https://picsum.photos/id/1045/800/600">
+        <img src="https://picsum.photos/id/1045/800/600" alt="">
+      </div>
+
+      <div class="gallery-item filtro4" data-src="https://picsum.photos/id/1055/800/600">
+        <img src="https://picsum.photos/id/1055/800/600" alt="">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================== JS ================== -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Isotope (desktop) -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<!-- ImagesLoaded -->
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+<!-- LightGallery -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+
+<script>
+const isMobile = () => window.innerWidth <= 768;
+const $grid = $('.gallery__images');
+
+/* Isotope SOLO en desktop */
+$grid.imagesLoaded(function () {
+  if (!isMobile()) {
+    $grid.isotope({
+      itemSelector: '.gallery-item',
+      layoutMode: 'fitRows'
+    });
+  }
+});
+
+/* Filtros */
+$('.filter-btn').on('click', function () {
+  const filterValue = $(this).data('filter');
+
+  $('.filter-btn').removeClass('is-active');
+  $(this).addClass('is-active');
+
+  if (isMobile()) {
+    $('.gallery-item').hide();
+
+    if (filterValue === '*') {
+      $('.gallery-item').show();
+    } else {
+      $(filterValue).show();
+    }
+
+    $grid.scrollLeft(0);
+
+    this.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center'
+    });
+
+  } else {
+    $grid.isotope({ filter: filterValue });
+  }
+});
+
+/* Lightbox */
+lightGallery(document.querySelector('.gallery__images'), {
+  selector: '.gallery-item',
+  download: false
+});
+</script>
+
+</body>
+</html>

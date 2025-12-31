@@ -1,0 +1,34 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+.carousel-thoughts{
+    @include m.styleBase;
+    background-color: v.$arena-clara;
+    padding: 65px 0;
+    @include m.tablet{
+        padding: 72px 0;
+    }
+    &__carousel{
+        .item-thought{
+            text-align: center;
+            padding: 0 10px;
+            @include m.tablet-xl{
+                padding: 0 30px;
+            }
+            p{
+                @include t.tituloH2;
+                color: v.$azul-profundo
+            }
+            span{
+                @include t.body1;
+                color: v.$azul-profundo;
+                margin-top: 15px;
+                display: inline-block;
+            }
+        }
+    }
+    .owl-navsDots--inline .owl-stage-outer{
+        margin-bottom:50px;
+    }
+}

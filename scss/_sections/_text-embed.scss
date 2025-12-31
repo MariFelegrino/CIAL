@@ -1,0 +1,47 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+@use "sass:map";
+
+.text-embed{
+    @include m.styleBase;
+    padding: 65px 0;
+    @include m.tablet{
+        padding: 72px 0;
+    }
+    &__inner{
+        @include m.styleBase;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        flex-direction: column-reverse;
+        gap: 40px;
+        @include m.tablet{
+            gap: 36px;
+            flex-direction: row;
+        }
+    }
+    &__txt,
+    &__iframe{
+        @include m.styleBase;
+        @include m.tablet{
+            width: calc((100% - 36px) / 2);
+        }
+    }
+    &__txt{
+        /* padding: 50px 0; */
+        @include m.tablet-xl{
+            padding: 75px 0;
+        }
+    }
+    &__iframe{
+        @include m.tablet{
+            height: auto;
+            flex-grow: 1;
+            iframe{
+                height: 100%;
+            }
+        }
+    }
+}

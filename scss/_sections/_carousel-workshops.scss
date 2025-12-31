@@ -1,0 +1,120 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+@use "sass:map";
+
+
+$paddings-left:(
+            tablet: calc((100% - (696px)) / 2),
+            tablet-xl: calc((100% - (936px)) / 2),
+            laptop: calc((100% - (78.4375%)) / 2),
+            desktop: calc((100% - (1320px - 24px)) / 2)
+        );
+
+.carousel-workshops{
+    @include m.styleBase;
+    background-color: v.$blanco;
+    padding: 65px 0;
+    @include m.tablet{
+        padding: 72px 0;
+    }
+    &__inner{
+        @include m.styleBase;
+    }
+    &__carousel{
+        padding-top: 50px;
+        .item-workshops{
+            &__img{
+                border-radius: 18px;
+                width: 100%;
+                min-height: 350px;
+                overflow: hidden;
+                background-position: center;
+                background-size: cover;
+                padding: 20px 26px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-start;
+                @include m.laptop{
+                    min-height: 400px;
+                }
+                @include m.desktop{
+                    min-height: 500px;
+                }
+                &::after{
+                    @include m.after;
+                    background: transparent linear-gradient(180deg, #1F496900 0%, #1C426002 34%, #102535CE 100%) 0% 0% no-repeat padding-box;
+                    border-radius: 18px;
+                }
+            }
+            &__info{
+                @include m.styleBase;
+                z-index: 100;
+                @include m.tablet-xl{
+                    width: 74%;
+                }
+                @include m.desktop{
+                    width: 62%;
+                }
+                .ttl-block{
+                    margin-bottom: 13px;
+                }
+                .description-block{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .owl-stage{
+        display: flex;
+        .owl-item{
+            display: flex;
+            flex-grow: 1;
+            .item{
+                display: flex;
+                flex-grow: 1;
+                .item-workshops{
+                    display: flex;
+                    flex-grow: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.carousel-workshops{
+    .owl-dots{
+        padding-left: 12px;
+        @include m.tablet{
+            padding-left: map.get( $paddings-left, tablet);
+        }
+        @include m.tablet-xl{
+            padding-left: map.get( $paddings-left, tablet-xl);
+        }
+        @include m.laptop{
+            padding-left: map.get( $paddings-left, laptop);
+        }
+        @include m.desktop{
+            padding-left: map.get( $paddings-left, desktop);
+        }
+    }
+    .owl-nav{
+        padding-right: 12px;
+        @include m.tablet{
+            padding-right: map.get( $paddings-left, tablet);
+        }
+        @include m.tablet-xl{
+            padding-right: map.get( $paddings-left, tablet-xl);
+        }
+        @include m.laptop{
+            padding-right: map.get( $paddings-left, laptop);
+        }
+        @include m.desktop{
+            padding-right: map.get( $paddings-left, desktop);
+        }
+    }
+}

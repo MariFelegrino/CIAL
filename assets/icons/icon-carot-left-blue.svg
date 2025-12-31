@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 12 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="angle-arrow-down_icon-icons.com_73683" transform="matrix(-3.82857e-16,1,-1,-3.82857e-16,11.586,0)">
+        <g opacity="0.75">
+            <path id="Trazado_22" d="M19.667,1.194L18.667,0.194C18.549,0.067 18.383,-0.005 18.209,-0.005C18.035,-0.005 17.869,0.067 17.751,0.194L9.933,8.022L2.11,0.2C1.992,0.073 1.826,0.001 1.652,0.001C1.478,0.001 1.312,0.073 1.194,0.2L0.194,1.2C0.067,1.318 -0.005,1.484 -0.005,1.658C-0.005,1.832 0.067,1.998 0.194,2.116L9.47,11.392C9.588,11.519 9.754,11.591 9.927,11.591C10.101,11.591 10.267,11.519 10.385,11.392L19.667,2.11C19.793,1.991 19.865,1.825 19.865,1.652C19.865,1.479 19.793,1.313 19.667,1.194Z" style="fill:rgb(31,73,105);fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

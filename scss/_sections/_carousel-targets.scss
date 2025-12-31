@@ -1,0 +1,90 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+.carousel-targets{
+    background-color:v.$verde-musgo;
+    background-image: url('../../assets/backgrounds/Enmascarar-grupo-8.svg');
+    padding: 65px 0;
+    &.rec-top-block{
+            padding: 65px 0 260px;
+        }
+    @include m.tablet{
+        padding: 72px 0;
+        &.rec-top-block{
+            padding: 72px 0 250px;
+        }
+    } 
+    &__inner{
+        position: relative;
+        width: 100%;
+    }
+    &__carousel{
+        padding-top: 27px;
+        @include m.tablet-xl{
+            padding-top: 20px;
+        }
+        .item{
+            border: 1px solid v.$blanco;
+            border-radius: 13px;
+            transform: scale(0.99);
+            overflow: hidden;
+            .target-carousel{
+                padding: 12px;
+                display: flex;
+                gap: 22px;
+                flex-direction: column;
+                align-items: stretch;
+
+                @include m.tablet-xl{
+                    gap: 0;
+                    flex-direction: row;
+                    padding: 0;
+                    align-items: center;
+                }
+                &__img{
+                    aspect-ratio: 364/224;
+                    overflow: hidden;
+                    width: 100%;
+                    border-radius: 10px;
+                    height: 100%;
+                    @include m.tablet-xl{
+                        aspect-ratio: 155/240;
+                        align-content: center;
+                        width: 41.174%;
+                    }
+                    @include m.laptop{
+                        width: 31.174%;
+                    }
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        /* max-height: 300px; */
+                    }
+                }
+                &__info{
+                    text-align: center;
+                    @include m.tablet-xl{
+                        text-align: left;
+                        padding: 20px 20px 20px 16px;
+                        align-content: center;
+                        width: calc(100% - 41.174%);
+                    }
+                    @include m.laptop{
+                        width: calc(100% - 31.174%);
+                    }
+                    h3{
+                        @include t.tituloH3-Simple;
+                        margin-bottom: 13px;
+                        color: v.$blanco;
+                    }
+                    p{
+                        @include t.body2;
+                        color: v.$blanco;
+                    }
+                }
+            }
+        }
+    }
+}

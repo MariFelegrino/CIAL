@@ -1,0 +1,79 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+
+.initial-block{
+  @include m.relative;
+  margin: 50px 0;
+  @include m.tablet{
+    margin: 70px 0;
+  }
+
+  &-inner{
+    @include m.relative;
+    padding: 0 20px;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    @include m.tablet-xl{
+      justify-content: center;
+    }
+  }
+
+  &-information{
+    @include m.relative;
+    margin-bottom: 50px;
+    @include m.tablet{
+      padding: 0 10%;
+    }
+    @include m.tablet-xl{
+      width: calc(50% - 40px);
+      padding: 50px 20px;
+      margin: 0;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+    }
+    @include m.laptop{
+      padding:50px;
+    }
+  }
+
+  &-image {
+    position:relative;
+    width: 48%;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 300px;
+    @include m.tablet{
+      height: 450px;
+    }
+    @include m.tablet-xl{
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 25%;
+    }
+    &.left-img{
+      @include m.tablet-xl{
+        left: 20px;
+      }
+    }
+    &.right-img{
+      @include m.tablet-xl{
+        right: 20px;
+      }
+    }
+    img{
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+}
