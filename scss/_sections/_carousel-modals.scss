@@ -24,6 +24,9 @@ $paddings-left:(
     }
     &__carousel{
         padding-top: 50px;
+        .owl-stage-outer{
+            margin-bottom: 50px;
+        }
         .owl-dots{
             padding-left: 12px;
             @include m.tablet{
@@ -198,35 +201,18 @@ $paddings-left:(
         @include m.tablet-xl{
             padding: 0 26px;
         }
-        .superindex{
-            color: #000000;
-            h1,h2,h3,h4,h5,h6,span,p{
-                /* @include raleway-regular;*/
-                @include m.slice;   
-                font-size: 18px;
-                letter-spacing: 0.36px;
-            }
-        }
-        .ttl{
-            color: #005473;
-            h1,h2,h3,h4,h5,h6,span,p{
-                /* @include raleway-semibold;*/
-                @include m.slice;   
-                font-size: 32px;
-                letter-spacing: 0.64px;
-            }
-        }
     }
 } 
 
 
-.iframe-style.modal{
+.iframe-style.modal,
+.img-style.modal{
     background-color: color.adjust(v.$azul-profundo, $alpha:-0.2);
 }
 .iframe-style .modal-dialog{
     display: flex;
     align-items: center;
-    min-height: calc(100% - 1rem);
+   /*  min-height: calc(100% - 1rem); */
     @include m.tablet{
         max-width: 600px;
         width: auto;
@@ -236,6 +222,7 @@ $paddings-left:(
     }
     @include m.laptop{
         max-width: 950px;
+        /* margin-top: 100px; */
     }
     @include m.desktop{
         max-width: 1250px;
@@ -248,6 +235,7 @@ $paddings-left:(
 }
 .iframe-style .modal-body {
     padding: 0.2rem;
+    text-align: center;
     iframe{
         width: 100%;
         display: block;
@@ -273,16 +261,71 @@ $paddings-left:(
             height: 800px;
         } */
     }
+    /* img{
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 100%;
+        display: inline-block;
+        @include m.tablet{
+            width: 60%;
+        }
+    } */
 }
 
+.img-style .modal{
+    &-dialog{
+        display: flex;
+        align-items: center;
+        /* min-height: calc(100% - 1rem); */
+        width: auto;
+        @include m.tablet{
+            max-width: 600px;
+        }
+        @include m.tablet-xl{
+            max-width: 780px;
+        }
+        @include m.laptop{
+            max-width: 720px;
+        }
+    }
+    &-content{
+        flex: 1;
+        background-color: #ffffff00;
+        border: none;
+    }
+    &-body{
+        img{
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            display: inline-block;
+        }
+    }
+    &-close-action-wrap{
+
+    }
+    &-close-action{
+        
+    }
+}
+
+.modal-close-action-wrap{
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    height: 58px;
+    margin-bottom: 10px;
+}
 .modal-close-action {
     position: absolute;
     right: 0;
-    top: -80px;
+    /* top: -80px; */
     width: 58px;
     height: 58px;
     /*border: 1px solid transparentize($color: $yellow, $amount: 0.8);*/
-    border: 1px solid color.adjust(v.$dorado-calido, $alpha: -0.8);
+    border: 1px solid color.adjust(v.$blanco, $alpha: -0.8);
     padding: 4px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -301,13 +344,14 @@ $paddings-left:(
         svg{
             g{
                 path{
-                    fill: v.$dorado-calido !important;
+                    fill: v.$azul-noche !important;
                 }
             }
         }
     }
     &:hover{
-        background: transparent;
+        background: color.adjust(v.$azul-noche, $alpha: 0);
+        border: 1px solid v.$blanco;
         .icon{
             svg{
                 g{
@@ -328,9 +372,13 @@ padding: 4px;
 outline: none;
 border: 0;
 opacity: 1;
-background: url('data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%22256px%22 height%3D%22256px%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cg id%3D%22SVGRepo_bgCarrier%22 stroke-width%3D%220%22/%3E%3Cg id%3D%22SVGRepo_tracerCarrier%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3Cg id%3D%22SVGRepo_iconCarrier%22%3E%3Cpath d%3D%22M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z%22 fill%3D%22%23EDC17B%22/%3E%3C/g%3E%3C/svg%3E') center / 2em auto no-repeat;;
-
+background: url('data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%22256px%22 height%3D%22256px%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cg id%3D%22SVGRepo_bgCarrier%22 stroke-width%3D%220%22/%3E%3Cg id%3D%22SVGRepo_tracerCarrier%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3Cg id%3D%22SVGRepo_iconCarrier%22%3E%3Cpath d%3D%22M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z%22 fill%3D%22%23142C3D%22/%3E%3C/g%3E%3C/svg%3E') center / 2em auto no-repeat;
+transition: all ease-in-out .3s;
+    &:hover{
+      background: url('data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%22256px%22 height%3D%22256px%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cg id%3D%22SVGRepo_bgCarrier%22 stroke-width%3D%220%22/%3E%3Cg id%3D%22SVGRepo_tracerCarrier%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3Cg id%3D%22SVGRepo_iconCarrier%22%3E%3Cpath d%3D%22M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z%22 fill%3D%22%23FFFFFF%22/%3E%3C/g%3E%3C/svg%3E') center / 2em auto no-repeat;  
+    }
 }
+
 .modal-close-action .close:focus,
 .modal-close-action .btn-close:focus {
 -webkit-box-shadow: none;

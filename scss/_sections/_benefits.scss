@@ -1,0 +1,59 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+.benefits{
+    margin: 65px 0;
+    background-color: v.$blanco;
+    @include m.styleBase;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+
+    }
+    &__cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 45px 16px;
+        padding-top: 70px;
+        .item-concept{
+            @include m.styleBase;
+            display: flex;
+            gap: 22px;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            width: calc((100% - 16px) / 2);
+            @include m.tablet{
+                width: calc((100% - 32px) / 3);
+            }
+            @include m.tablet-xl{
+                width: calc((100% - 48px) / 4);
+            }
+            &__img{
+                width: 77px;
+                height: 77px;
+                position: relative;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            &__name{
+                p{
+                    @include t.body1;
+                    color: v.$azul-profundo;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

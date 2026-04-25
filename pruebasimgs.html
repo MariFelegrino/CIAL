@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <picture>
+    <!-- Desktop -->
+    <source 
+        media="(min-width: 1024px)" 
+        srcset="imagenes/imagen-1200.jpg">
+
+    <!-- Tablet -->
+    <source 
+        media="(min-width: 768px)" 
+        srcset="imagenes/imagen-768.jpg">
+
+    <!-- Mobile (fallback) -->
+    <img 
+        src="imagenes/imagen-480.jpg" 
+        alt="Descripción de la imagen"
+        loading="lazy"
+        style="width:100%; height:auto;">
+    </picture>
+</body>
+</html>

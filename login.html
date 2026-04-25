@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <!-- Librerias externas -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <!-- Tipografias -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/loginStyle.css">
+</head>
+<body>
+
+    <main>
+        <div class="header-desktop-translate-action-wrap">
+            <div class="container-xl">
+                <div class="header-desktop-translate-action">
+                    <a href="/en/" class="translate-action" aria-label="Traducir">
+                        <img src="/assets/icons/translate-icon.svg" alt="Icono de Traducción" title="Traducción" loading="lazy">
+                        <span>ESP</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="session-forms">
+            <div class="container-fluid">
+                <div class="session-forms__inner">
+                    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+                    * * Iniciar Sesión
+                    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+                    <!-- <div class="login">
+                        <div class="header-forms">
+                            <img src="assets/corporativo/Grupo 1727_blue.svg" alt="logotipo CIAL">
+                            <p class="ttl-form">Iniciar sesión</p>
+                            <p class="subttl-form">Encuentra el camino y la inspiración</p>
+                        </div>
+                        <div class="sesion_form">
+                            <form action="" class="form-column" id="modalFormlogin">
+                                <div class="form__input">
+                                    <label for="email" class="label-hidden">Correo Electrónico</label>
+                                    <input type="email" name="email" id="email" placeholder="Email" required>
+                                </div>
+                                <div class="form__input">
+                                    <label for="password" class="label-hidden">Contraseña</label>
+                                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                                </div>
+                                <div class="cta-actions-form">
+                                    <a href="#" class="recoveryPSW" id="recoveryPSWID">¿Olvidaste tu contraseña?</a>
+                                    <button type="submit" aria-label="Iniciar sesión en CIAL">Entrar</button>
+                                    <p class="join-cial">¿No tienes una cuenta?, <a href="" class="join-cial-action">Únete gratis</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+
+                    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+                    * * Registro
+                    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+                    <div class="registro">
+                        <div class="header-forms">
+                            <img src="assets/corporativo/Grupo 1727_blue.svg" alt="logotipo CIAL">
+                            <p class="ttl-form">Únete gratis con tu email</p>
+                        </div>
+                        <div class="sesion_form">
+                            <form action="" class="form-column" id="modalFormRegister">
+                                <div class="form__input">
+                                    <label for="email" class="label-hidden">Correo Electrónico</label>
+                                    <input type="email" name="email" id="email" placeholder="Email" required>
+                                </div>
+                                <!-- <div class="form__input">
+                                    <label for="password" class="label-hidden">Contraseña</label>
+                                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                                </div> -->
+                                <div class="form__input password-wrapper">
+                                    <label for="password" class="label-hidden">Contraseña</label>
+                                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                                    <span class="toggle-password" onclick="togglePassword('password', this)">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                </div>
+                                <div class="form__select">
+                                    <label for="timezone" class="label-hidden">Zona horaria</label>
+                                    <select name="timezone" id="timezone" required="">
+                                        <option value="-12">UTC -12:00 — Baker Island (US)</option>
+                                        <option value="-11">UTC -11:00 — American Samoa</option>
+                                        <option value="-10">UTC -10:00 — Hawaii (US)</option>
+                                        <option value="-9.5">UTC -09:30 — Marquesas Islands (FR)</option>
+                                        <option value="-9">UTC -09:00 — Alaska (US)</option>
+                                        <option value="-8">UTC -08:00 — Pacific Time (US, Canada)</option>
+                                        <option value="-7">UTC -07:00 — Mountain Time (US, Canada)</option>
+                                        <option value="-6">UTC -06:00 — Mexico City (MX), Central Time (US)</option>
+                                        <option value="-5">UTC -05:00 — New York (US), Colombia, Peru</option>
+                                        <option value="-4">UTC -04:00 — Chile, Bolivia, Atlantic Time (CA)</option>
+                                        <option value="-3.5">UTC -03:30 — Newfoundland (CA)</option>
+                                        <option value="-3">UTC -03:00 — Argentina, Brazil (São Paulo)</option>
+                                        <option value="-2">UTC -02:00 — South Georgia (UK)</option>
+                                        <option value="-1">UTC -01:00 — Azores (PT)</option>
+                                        <option value="0">UTC ±00:00 — United Kingdom, Portugal, Ghana</option>
+                                        <option value="1">UTC +01:00 — Spain, France, Germany</option>
+                                        <option value="2">UTC +02:00 — Egypt, South Africa, Greece</option>
+                                        <option value="3">UTC +03:00 — Saudi Arabia, Kenya, Russia (Moscow)</option>
+                                        <option value="3.5">UTC +03:30 — Iran</option>
+                                        <option value="4">UTC +04:00 — UAE, Azerbaijan</option>
+                                        <option value="4.5">UTC +04:30 — Afghanistan</option>
+                                        <option value="5">UTC +05:00 — Pakistan, Uzbekistan</option>
+                                        <option value="5.5">UTC +05:30 — India, Sri Lanka</option>
+                                        <option value="5.75">UTC +05:45 — Nepal</option>
+                                        <option value="6">UTC +06:00 — Bangladesh, Bhutan</option>
+                                        <option value="6.5">UTC +06:30 — Myanmar</option>
+                                        <option value="7">UTC +07:00 — Thailand, Vietnam</option>
+                                        <option value="8">UTC +08:00 — China, Singapore, Western Australia</option>
+                                        <option value="8.75">UTC +08:45 — Eucla (Australia)</option>
+                                        <option value="9">UTC +09:00 — Japan, South Korea</option>
+                                        <option value="9.5">UTC +09:30 — Northern Territory (Australia)</option>
+                                        <option value="10">UTC +10:00 — Queensland (Australia), Papua New Guinea</option>
+                                        <option value="10.5">UTC +10:30 — Lord Howe Island (Australia)</option>
+                                        <option value="11">UTC +11:00 — Solomon Islands</option>
+                                        <option value="12">UTC +12:00 — New Zealand, Fiji</option>
+                                        <option value="12.75">UTC +12:45 — Chatham Islands (NZ)</option>
+                                        <option value="13">UTC +13:00 — Samoa</option>
+                                        <option value="14">UTC +14:00 — Line Islands (Kiribati)</option>
+                                    </select>
+                                    <i class="d-block"></i>
+                                </div>
+                                <!-- <div class="form__input">
+                                    <label for="repeatPassword" class="label-secundary">Repite tu contraseña</label>
+                                    <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repite tu contraseña" required>
+                                </div> -->
+                                <div class="form__input password-wrapper">
+                                    <label for="repeatPassword" class="label-hidden">Repite tu contraseña</label>
+                                    <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repite tu contraseña" required>
+                                    <span class="toggle-password" onclick="togglePassword('repeatPassword', this)">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                </div>
+                                <div class="cta-actions-form">
+                                    <div class="form__input-check">
+                                        <input type="checkbox" name="checkPolicy" id="checkPolicy">
+                                        <label for="checkPolicy" class="info-cial">Al registrarte, aceptas nuestras <a href="#" class="link-info-cial">Condiciones de uso</a> y nuestra <a href="#" class="link-info-cial">Política de privacidad</a>.</label>
+                                    </div>
+                                    <button type="submit" id="btnRegisterForm" aria-label="Registrarse en CIAL" disabled >Únete gratis</button>
+                                </div>
+                                <div class="cta-actions-form">
+                                    <div class="form__input-check">
+                                        <input type="checkbox" name="checkPolicy" id="checkPolicy">
+                                        <label for="checkPolicy" class="info-cial">Al registrarte, aceptas nuestras <a href="#">Condiciones de uso</a> y nuestra <a href="#">Política de privacidad</a>.</label>
+                                    </div>
+                                    <button type="submit" id="btnRegisterForm" aria-label="Registrarse en CIAL" disabled >Únete gratis</button>
+                                </div>
+                                <div class="cta-actions-form options-secundary">
+                                    <p class="join-cial">¿Ya tienes una cuenta?, <a href="" class="join-cial-action-sn-dec">¡Entra ahora!</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+                    * * Recuperar contraseña
+                    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+                    <!-- <div class="recover-psw">
+                        <div class="header-forms">
+                            <img src="assets/corporativo/Grupo 1727_blue.svg" alt="logotipo CIAL">
+                            <p class="ttl-form">Restablecer contraseña</p>
+                            <p class="subttl-form">Te enviaremos un correo electrónico para que puedas restablecer tu contraseña.</p>
+                        </div>
+                        <div class="sesion_form">
+                            <form action="" class="form-column">
+                                <div class="form__input">
+                                    <label for="email" class="label-hidden">Correo Electrónico</label>
+                                    <input type="email" name="email" id="email" placeholder="Email" required>
+                                </div>
+                                <div class="cta-actions-form">
+                                    <button type="submit" aria-label="Recuperar contraseña">Restablecer contraseña</button>
+                                    <a href="#" class="cancelar">Cancelar</a>
+                                </div>
+                                <div class="cta-actions-form options-secundary">
+                                    <p class="join-cial">¿Necesitas ayuda? Visita nuestra sección de <a href="#" class="join-cial-action">Ayuda</a> o <a href="#" class="join-cial-action">contáctanos.</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="back-home">
+                        <a href="#" aria-label="Regresar al home">Regresar al Home</a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="copyright-login">
+            <div class="container">
+                <p>&copy; 2025 CIAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Librerías Base -->
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <!-- Otras Librerías -->
+    <script src="scripts/owl.carousel.min.js"></script>
+    <script src="scripts/usal.js"></script>
+    <script src="scripts/dotdotdot.js"></script>
+    <script src="scripts/sweetalert.js"></script>
+    <!-- Scripts -->
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/lights.js"></script>
+    <script src="scripts/clases-curso.js"></script>
+
+
+    <script>
+    // Mostrar / ocultar contraseña
+    function togglePassword(inputId, element) {
+        const input = $("#" + inputId);
+        const icon = $(element).find("i");
+
+        if (input.attr("type") === "password") {
+            input.attr("type", "text");
+            icon.removeClass("fa-eye").addClass("fa-eye-slash");
+        } else {
+            input.attr("type", "password");
+            icon.removeClass("fa-eye-slash").addClass("fa-eye");
+        }
+    }
+
+    // Cuando el DOM esté listo
+    $(document).ready(function () {
+        const checkbox = $("#checkPolicy");
+        const button = $("#btnRegisterForm");
+
+        if (checkbox.length && button.length) {
+            // iniciar deshabilitado
+            button.prop("disabled", true);
+
+            checkbox.on("change", function () {
+                button.prop("disabled", !$(this).is(":checked"));
+            });
+        }
+    });
+</script>
+
+<!--     <script>
+        function togglePassword(inputId, element) {
+            const input = document.getElementById(inputId);
+            const icon = element.querySelector("i");
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkbox = document.getElementById("checkPolicy");
+            const button = document.getElementById("btnRegisterForm");
+
+            // iniciar deshabilitado
+            button.disabled = true;
+
+            checkbox.addEventListener("change", function() {
+                button.disabled = !this.checked;
+            });
+        });
+    </script> -->
+
+    <script>
+        
+        document.getElementById("modalFormRegister").addEventListener("submit", function(e) {
+            e.preventDefault(); // evita envío automático
+
+            /* Swal.fire({
+                icon: 'error',
+                title: 'Error al iniciar sesión',
+                text: 'No fue posible iniciar sesión. Revise los datos e intente nuevamente.',
+                confirmButtonColor: '#1F4969',
+                confirmButtonText: 'Aceptar'
+            }); */
+            /* Swal.fire({
+                icon: 'warning',
+                title: 'Datos incompletos',
+                html: '<b>Por favor verifica</b> los campos e intenta nuevamente.',
+                confirmButtonColor: '#1F4969',
+                confirmButtonText: 'Revisar'
+            }); */
+            /* Swal.fire({
+                icon: 'success',
+                title: 'Registro completo',
+                text: 'Redirigiendo al login.',
+                confirmButtonText: 'Continuar',
+                customClass: {
+                    confirmButton: 'boton-sweetAlert'
+                },
+                buttonsStyling: false
+            }); */
+             /* Swal.fire({
+                icon: 'success',
+                title: 'Datos actualizados',
+                text: 'Se modificaron los datos exitosamente',
+                timer: 2500,
+                showConfirmButton: false,
+                timerProgressBar: true
+            }); */
+            /*Swal.fire({
+                title: 'Cargando...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });*/
+
+            /* Swal.fire({
+                title: 'Iniciando sesión...',
+                text: 'Por favor espera',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                 html: `
+                    <div class="mi-texto">Por favor espera</div>
+                    <div class="spinner-azul"></div>
+                `,
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-titulo',
+                    htmlContainer: 'mi-texto',
+                },
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            }); */
+
+            Swal.fire({
+                title: 'Iniciando sesión...',
+                html: `
+                    <div class="subttlAlert">Por favor espera</div>
+                    <div class="spinner-azul"></div>
+                `,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'popUpAlert',
+                    title: 'ttlAlert',
+                    htmlContainer: 'subttlAlert',
+                }
+            });
+        });
+    </script>
+
+    
+
+    
+</body>
+</html>

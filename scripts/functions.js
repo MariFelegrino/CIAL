@@ -1,7 +1,15 @@
 $(document).ready(function(){
+
+    $(".btn-basic--sesion-logueado > a").click(function(e){
+        e.preventDefault();
+        $(".submenu").slideToggle(300);
+    });
+
     $('.owl-featured').owlCarousel({
         loop:true,
         autoplay:true,
+        autoplayTimeout: 4000, // 12 segundos
+        autoplayHoverPause: true,
         nav:true,
         margin:5,
         items:1,
@@ -235,6 +243,7 @@ $(document).ready(function(){
         responsive:{
             0:{
                 items:1,
+                stagePadding: 0,
             },
             600:{
                 stagePadding: 150,
@@ -247,6 +256,57 @@ $(document).ready(function(){
         }
     });
     
+    $('.owl-events').owlCarousel({
+        loop:true,
+        autoplay:true,
+        nav:true,
+        margin:16,
+        items:1,
+        navText: [
+            `<div class='arrow'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </div>`,
+            `<div class='arrow'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </div>`
+        ],
+        dots:true
+    });
+
+     $('.owl-articles').owlCarousel({
+        loop:true,
+        autoplay:true,
+        nav:true,
+        margin:16,
+        navText: [
+            `<div class='arrow'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </div>`,
+            `<div class='arrow'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </div>`
+        ],
+        dots:true,
+        responsive:{
+            0:{
+                items:1,
+            },
+            600:{
+                items:2,
+            },
+            900:{
+                items:3,
+            },
+        }
+    });
 
     // ============================================
     // INTERSECTION OBSERVER — bloques animatables
@@ -299,6 +359,11 @@ $(document).ready(function(){
     // *  *  *  *  *  *  *  *  *  *  * *
     $(".control__doots").dotdotdot({
         height: 120,
+        fallbackToLetter: true,
+        watch: true,
+    });
+    $(".control__doots-min").dotdotdot({
+        height: 50,
         fallbackToLetter: true,
         watch: true,
     });

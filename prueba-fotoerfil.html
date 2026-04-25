@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Foto de Perfil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      padding: 40px;
+      color: #1f2937;
+    }
+
+    .about-me {
+      max-width: 700px;
+    }
+
+    .title {
+      font-size: 18px;
+      letter-spacing: 6px;
+      font-weight: 700;
+      color: #1f4d6d;
+      margin-bottom: 24px;
+    }
+
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .avatar-wrap {
+      width: 140px;
+      height: 140px;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #f3f4f6;
+      display: block;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .btn-upload {
+      width: 300px;
+      height: 48px;
+      border: 2px solid #9ca3af;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #6b7280;
+      cursor: pointer;
+      background: #fff;
+      user-select: none;
+    }
+
+    .btn-upload:hover {
+      border-color: #6b7280;
+      color: #4b5563;
+    }
+
+    .options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #6b7280;
+      font-size: 16px;
+    }
+
+    .options input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #2563eb;
+    }
+
+    .delete-link {
+      color: #4b5563;
+      text-decoration: underline;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .delete-link:hover {
+      color: #111827;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="about-me">
+    <div class="title">SOBRE MI</div>
+
+    <div class="profile-row">
+
+      <!-- Avatar -->
+      <div class="avatar-wrap">
+        <img
+          id="avatarPreview"
+          class="avatar"
+          src="https://via.placeholder.com/160"
+          alt="Foto de perfil"
+        />
+      </div>
+
+      <!-- Controles -->
+      <div class="controls">
+
+        <label class="btn-upload">
+          SELECCIONAR IMAGEN
+          <input id="avatarInput" type="file" accept="image/*" hidden />
+        </label>
+
+        <div class="options">
+          <input type="checkbox" id="checkOption">
+          <label for="checkOption">Marcar casilla la casilla,</label>
+
+          <a id="deleteImage" class="delete-link">Eliminar Imagen</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const input = document.getElementById("avatarInput");
+    const preview = document.getElementById("avatarPreview");
+    const deleteLink = document.getElementById("deleteImage");
+
+    const defaultImage = preview.src;
+
+    input.addEventListener("change", function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      preview.src = URL.createObjectURL(file);
+    });
+
+    deleteLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      input.value = "";
+      preview.src = defaultImage;
+    });
+  </script>
+
+</body>
+</html>

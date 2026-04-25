@@ -1,0 +1,303 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+
+.breadcrumb-navegation{
+    background-color: v.$azul-profundo;
+    padding: 15px 17px;
+    display: none;
+    @include m.tablet{
+        display: block;
+    }
+    ol{
+        margin-bottom: 0;
+    }
+    .breadcrumb-item+.breadcrumb-item::before {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+        color: v.$blanco;
+    }
+    .breadcrumb-item{
+        color: v.$blanco;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 0.32px;
+        @include m.desktop{
+            font-size: 17px;
+        }
+        a{
+            color: v.$blanco;
+            text-decoration: none;
+            @include m.sora-bold;
+        }
+    }
+    .breadcrumb-item:not(a),
+    .breadcrumb-item.active{
+        @include m.sora-light;
+    }
+}
+
+/*Clase para tarjeta de curso compartido con sesiones*/
+
+.curso-item{
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 3px 20px #0000001A;
+    @include m.tablet{
+        width: calc((100% - 20px) / 2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @include m.tablet-xl{
+        width: calc((100% - 40px) / 3);
+    }
+    &__img{
+        border-radius: 15px 15px 0 0;
+        margin-bottom: 8px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            aspect-ratio: 315/220;
+        }
+    }
+    &__contenido{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        .name-curso{
+            color: v.$azul-profundo;
+            @include m.sora-semibold;
+            @include m.slice;
+            font-size: 18px;
+            letter-spacing: 0.54px;
+            margin-bottom: 13px;
+            @include m.mobile-l{
+                font-size: 20px;
+            }
+            @include m.tablet{
+                font-size: 18px;
+            }
+            @include m.laptop{
+                font-size: 20px;
+            }
+            @include m.desktop{
+                font-size: 22px;
+            }
+        }
+        .profesor-curso{
+            color: v.$gris-humo-calido;
+            @include m.sora-medium;
+            font-size: 14px;
+            letter-spacing: 0.14px;
+            span{
+                color: v.$azul-noche;
+            }
+            @include m.mobile-l{
+                font-size: 16px;
+            }
+            @include m.tablet{
+                font-size: 14px;
+            }
+            @include m.laptop{
+                font-size: 16px;
+            }
+            @include m.desktop{
+                font-size: 18px;
+            }
+        }
+        .description-curso{
+            color: v.$azul-noche;
+            @include t.body1-light;
+            margin-bottom: 0;
+        }
+    }
+    &__price{
+        padding: 0 15px;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 7px;
+        gap: 10px;
+        @include m.laptop{
+            gap: 16px;
+            justify-content: flex-start;
+        }
+        .offer-price{
+            color: #EF512C;
+            @include m.sora-bold;
+            @include m.slice;
+            font-size: 26px;
+            letter-spacing: 0.42px;
+            @include m.mobile-l{
+                font-size: 28px;
+            }
+            @include m.desktop{
+                font-size: 30px;
+            }
+        }
+        .original-price{
+            color: v.$gris-humo-calido;
+            /* @include t.body5; */
+            @include t.body1;
+            text-decoration: line-through;
+            @include m.desktop{
+                font-size: 20px;
+            }
+        }
+    }
+    &__btn{
+        border-radius: 0 0 15px 15px;
+        margin-top: 15px;
+    }
+}
+
+.cursos{
+    @include m.styleBase;
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        .sidebar-links{
+            @include m.styleBase;
+            @include m.tablet{
+                width: 200px;
+                padding-right: 20px;
+            }
+            @include m.tablet-xl{
+                width: 220px;
+            }
+            @include m.laptop{
+                width: 240px;
+            }
+            @include m.desktop{
+                width: 320px;
+            }
+            .group-links{
+                .group-ttl{
+                    @include m.sora-semibold;
+                    @include m.slice;
+                    font-size: 16px;
+                    letter-spacing: 0.48px;
+                    color: v.$azul-noche;
+                    margin-bottom: 4px;
+                    @include m.mobile-l{
+                        font-size: 18px;
+                    }
+                    @include m.tablet{
+                        font-size: 16px;
+                    }
+                    @include m.laptop{
+                        font-size: 18px;
+                    }
+                    @include m.desktop{
+                        font-size: 20px;
+                    }
+                }
+                ul{
+                    padding: 22px 0;
+                    display: flex;
+                    list-style: none;
+                    flex-direction: column;
+                    gap: 8px;
+                    padding-left: 0;
+                    
+                    li:not(.active){
+                        a{
+                            color: v.$gris-humo-calido;
+                            /* @include t.body5; */
+                            @include t.body1;
+                            text-decoration: none;
+                            padding: 4px 0;
+                            @include m.desktop{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    .active,
+                    .active a{
+                        color: v.$azul-profundo;
+                        @include m.sora-bold;
+                        @include m.slice;
+                        font-size: 16px;
+                        letter-spacing: 0.16px;
+                        @include m.mobile-l{
+                            font-size: 18px;
+                        }
+                        @include m.tablet{
+                            font-size: 16px;
+                        }
+                        @include m.laptop{
+                            font-size: 18px;
+                        }
+                        @include m.desktop{
+                            font-size: 20px;
+                        }
+                    }
+                    .active a{
+                        text-decoration: none;
+                    }
+                    
+                }
+            }
+            .group-links:not(:first-child){
+                padding-top: 45px;
+            }
+            .group-links:not(:last-child){
+                border-bottom: 1px solid rgba(112, 112, 112, 0.40);
+            }
+        }
+        .cursos-cards{
+            @include m.styleBase;
+            @include m.tablet{
+                width: calc(100% - 220px);
+            }
+            @include m.tablet-xl{
+                width: calc(100% - 240px);
+            }
+            @include m.laptop{
+                width: calc(100% - 260px);
+            }
+            @include m.desktop{
+                width: calc(100% - 340px);
+            }
+            .cursos__ttl{
+                margin-bottom: 55px;
+                h2,h3,h4,h5,h6,p{
+                    @include m.sora-semibold;
+                    @include m.slice;
+                    font-size: 22px;
+                    letter-spacing: 0.66px;
+                    margin-bottom: 0;
+                    color: v.$azul-noche;
+                    .name-classification{
+                        color: #EF512C;
+                    }
+                    @include m.desktop{
+                        font-size: 24px;
+                    }
+                }
+            }
+            &__cards{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                gap: 30px 20px;
+                .curso-item{
+                    
+                }
+            }
+        }
+    }
+}

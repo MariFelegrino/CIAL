@@ -145,6 +145,24 @@ $alturas-minimas: (
                 padding-bottom: 16px;
                 width: 100%;
             }
+            .carousel-indicators{
+                top: 100%;
+                right: calc(54px + 30px + 55px);
+                @include m.tablet{
+                    right: calc(54px + 18px + 54px + 35px);
+                }
+                /* margin-right: calc((54px * 2) + 28px);
+                @include m.tablet{
+                    right: 35px;
+                } */
+            } 
+            .carousel-control-next, 
+            .carousel-control-prev {
+                top: 100%;
+            }
+            .carousel-control-prev{
+                right: calc(54px + 18px);
+            }
         }
     }
     &__content-info{
@@ -198,3 +216,218 @@ $alturas-minimas: (
         }
     }
 }
+
+
+.carousel-banner{
+    @include m.styleBase;
+    &__inner{
+        @include m.styleBase;
+        .carousel-inner{
+            .carousel-banner__item{
+                padding-top: 210px;
+                padding-bottom: 100px;
+                display: flex;
+                flex-direction: column;
+                img{
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    z-index: -1;
+                }
+                
+                @include m.mobile-l{
+                    padding-top: 250px;
+                }
+                @include m.tablet{
+                    padding-top: 170px;
+                    padding-bottom: 30px;
+                }
+                .carousel-banner__content{
+                    flex-grow: 1;
+                    height: 100%;
+                    display: flex;
+                    z-index: 100;
+                    .container-xl{
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        @include m.tablet{
+                            &::after{
+                                content:"";
+                                width: 1px;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                background-color: v.$blanco;
+                                left: 12px;
+                            }
+                        }
+                        @include m.tablet-xl{
+                            &::after{
+                                left: 77px
+                            }
+                        }
+                    }
+                    &-inner{
+                        display: flex;
+                        flex-grow: 1;
+                    }
+                    &-info{
+                        color: v.$blanco;
+                        text-shadow: v.$text-shadow;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 100%;
+                        display: flex;
+                        flex-grow: 1;
+                        @include m.tablet{
+                            max-width: 90%;
+                            margin: 0 auto;
+                        }
+                        @include m.tablet-xl{
+                            max-width: 68%;
+                            margin-left: 130px;
+                            margin-right: auto;
+                        }
+                        @include m.laptop{
+                            max-width: 65%;
+                        }
+                        @include m.desktop{
+                            max-width: 50%;
+                        }
+                        .banner-index{
+                            margin-bottom: 25px;
+                            display: inline-block;
+                        }
+                        .banner-title{
+                            margin-bottom: 25px;
+                        }
+                        .banner-description{
+                            margin-bottom: 25px;
+                            @include m.tablet{
+                                max-width: 91%;
+                            }
+                            @include m.tablet-xl{
+                                max-width: 83%;
+                            }
+                            @include m.laptop{
+                                max-width: 73%;
+                            }
+                        }
+
+                        .btn--link{
+                            text-shadow: inherit;
+                        }
+                        &-wrap{
+                            padding-bottom: 50px;
+                            /* border-bottom: 1px solid transparentize($color: v.$blanco, $amount: 0.5); */
+                            border-bottom: 1px solid color.adjust(v.$blanco, $alpha: -0.5);
+                            display: flex;
+                            flex-direction: column;
+                            flex-wrap: wrap;
+                            flex-grow: 1;
+                            justify-content: center;
+                            @include m.tablet{
+                                border-bottom: none;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                    
+                }
+                min-height: map.get($alturas-minimas, default);
+                @include m.tablet {
+                    min-height: map.get($alturas-minimas, tablet);
+                }
+                @include m.tablet-xl {
+                    min-height: map.get($alturas-minimas, tablet-xl);
+                }
+                @include m.laptop {
+                    min-height: map.get($alturas-minimas, default);
+                }
+            }
+        }
+        .carousel-control-next, 
+        .carousel-control-prev {
+            top: calc(100% - 84px);
+            z-index: 100;
+        }
+        .carousel-control-next{
+            right: 12px;
+            @include m.laptop{
+                right: calc(((100% - (94.53125% + 24px)) / 2) + 12px);
+            }
+            @include m.desktop{
+                right: calc(((100% - (87.53125% + 24px)) / 2) + 12px);
+            }
+        }
+        .carousel-control-prev{
+            right: calc(54px + 30px);
+            @include m.laptop{
+                right: calc(((100% - (94.53125% + 24px)) / 2) + 84px);
+            }
+            @include m.desktop{
+                right: calc(((100% - (87.53125% + 24px)) / 2) + 84px);
+            }
+        }
+        .carousel-indicators{
+            bottom: 30px;
+            left: 12px;
+            margin-right: 0;
+            right: calc(54px + 30px + 55px);
+            z-index: 100;
+            @include m.tablet{
+                left: auto;
+                right: calc(54px + 18px + 54px + 35px + 12px);
+            }
+            @include m.laptop{
+                right: calc(((100% - (94.53125% + 24px)) / 2) + (54px + 18px + 54px + 35px + 12px));
+            }
+            @include m.desktop{
+                right: calc(((100% - (87.53125% + 24px)) / 2) + (54px + 18px + 54px + 35px + 12px));
+            }
+            /* @include m.laptop{
+                right: calc(((100% - (94.53125% + 24px)) / 2) + 107px);
+            }
+            @include m.desktop{
+                right: calc(((100% - (87.53125% + 24px)) / 2) + 107px);
+            } */
+        }
+
+    }
+    &.classAfterLight{
+        .carousel-banner__item{
+            position: relative;
+            &::after{
+                @include m.after;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+    &.classAfterMedium{
+         .carousel-banner__item{
+            position: relative;
+            &::after{
+                @include m.after;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+         }
+    }
+    &.classAfterDark{
+        .carousel-banner__item{
+            position: relative;
+            &::after{
+                @include m.after;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/*Brillo más extendido*/
+/*======================================================================*
+    Mixing Media Query
+*======================================================================*/
+/*======================================================================*
+    Mixing Media Query Personalizado
+*======================================================================*/
+/*======================================================================*
+    Tipography
+*======================================================================*/
+.boton-sweetAlert {
+  min-width: 130px;
+  padding: 13px 35px;
+  background-color: #1F4969;
+  color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: "Sora-Regular", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", Arial, serif, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  border-radius: 12px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-style: none;
+}
+.boton-sweetAlert:hover, .boton-sweetAlert:active {
+  background-color: rgb(21.7, 51.1, 73.5);
+  border-color: rgb(21.7, 51.1, 73.5);
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.botonSecundary-sweetAlert {
+  min-width: 130px;
+  padding: 13px 35px;
+  background-color: #F8F8F8;
+  color: #1F4969;
+  border: 1px solid #1F4969;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: "Sora-Regular", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", Arial, serif, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  border-radius: 12px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-style: none;
+}
+.botonSecundary-sweetAlert:hover, .botonSecundary-sweetAlert:active {
+  background-color: white;
+  color: #1F4969;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.popUpAlert {
+  border-radius: 25px;
+  padding: 30px;
+}
+
+.ttlAlert {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: "Sora-SemiBold", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", Arial, serif, sans-serif;
+  font-size: 25px;
+  letter-spacing: 0.36px;
+  color: #1F4969;
+}
+
+.subttlAlert {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: "Sora-Light", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", Arial, serif, sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.34px;
+  color: rgba(20, 44, 61, 0.75);
+  margin: 0px;
+}
+
+.spinner-azul {
+  width: 80px;
+  height: 80px;
+  border: 8px solid #e0e7ff;
+  border-top: 8px solid #142C3D;
+  border-radius: 50%;
+  -webkit-animation: girar 1s linear infinite;
+          animation: girar 1s linear infinite;
+  margin: 25px auto;
+}
+
+@-webkit-keyframes girar {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes girar {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

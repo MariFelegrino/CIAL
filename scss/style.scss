@@ -4,6 +4,7 @@
 @use "_nucleo/nabvar";
 @use "_nucleo/general";
 @use "_nucleo/animaciones";
+@use "_nucleo/paginador";
 
 @use "_sections/resource-counters";
 @use "_sections/carousel-featured";
@@ -26,6 +27,19 @@
 @use "_sections/carousel-modals";
 @use "_sections/gallery";
 @use "_sections/text-embed";
+@use "_sections/events";
+@use "_sections/blog";
+@use "_sections/servicios";
+@use "_sections/benefits";
+@use "_sections/_not-found";
+@use "_sections/_informative";
+@use "_sections/_escuela_virtual";
+@use "_sections/_curso";
+@use "_nucleo/camposForms";
+@use "_sections/perfil-aprendizaje";
+@use "_sections/pasarelaPago";
+@use "_sections/sesiones";
+@use "_sections/statusPagos";
 
 // ADD Salvador
 @use "_sections/carousel-highlights";

@@ -1,0 +1,87 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+.boton-sweetAlert{
+    min-width: 130px;
+    padding: 13px 35px;
+    background-color: v.$azul-profundo;
+    color: v.$blanco;
+    @include m.slice;
+    @include m.sora-regular;
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    text-align: center;
+    transition: all ease-in-out .3s;
+    border-radius: 12px;
+    box-shadow: none;
+    border-style: none;
+    &:hover,
+    &:active {
+        background-color: darken(v.$azul-profundo, 8%);
+        border-color: darken(v.$azul-profundo, 8%);
+        transform: translateY(-1px);
+    }
+}
+
+
+.botonSecundary-sweetAlert{
+    min-width: 130px;
+    padding: 13px 35px;
+    background-color: #F8F8F8;
+    color: v.$azul-profundo;
+    border: 1px solid v.$azul-profundo;
+    @include m.slice;
+    @include m.sora-regular;
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    text-align: center;
+    transition: all ease-in-out .3s;
+    border-radius: 12px;
+    box-shadow: none;
+    border-style: none;
+    &:hover,
+    &:active {
+        background-color: lighten(#F8F8F8, 44%);
+        color: v.$azul-profundo;
+        transform: translateY(-1px);
+    }
+}
+
+
+.popUpAlert {
+    border-radius: 25px;
+    padding: 30px;
+}
+
+.ttlAlert {
+    @include m.slice;
+    @include m.sora-semibold;
+    font-size: 25px;
+    letter-spacing: 0.36px;
+    color: v.$azul-profundo;
+}
+
+.subttlAlert {
+    @include m.slice;
+    @include m.sora-light;
+    font-size: 17px;
+    letter-spacing: 0.34px;
+    color: rgba(v.$azul-noche, 0.75);
+    margin: 0px;
+}
+
+.spinner-azul {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #e0e7ff;
+    border-top: 8px solid v.$azul-noche;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+    margin: 25px auto;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}

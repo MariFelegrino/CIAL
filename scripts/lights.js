@@ -18,7 +18,7 @@ $(document).ready(function () {
         margin:10,
         nav:true,
         dots:false,
-        navText: ["<img src='assets/icons/icon-carot-left-blue.svg'>","<img src='assets/icons/icon-carot-right-blue.svg'>"],
+        navText: ["<img src='/assets/icons/icon-carot-left-blue.svg'>","<img src='/assets/icons/icon-carot-right-blue.svg'>"],
         responsive:{
             0:{
                 items:1
@@ -50,12 +50,26 @@ $(document).ready(function () {
     /* ============================================
        FUNCIÓN: mostrar contenido
     ============================================ */
-    function updateLightsContent(btnValue) {
+    /* function updateLightsContent(btnValue) {
         $('.lights-content')
             .removeClass('visible')
             .filter(`[data-content="${btnValue}"]`)
             .addClass('visible');
-    }
+    } */
+
+    function updateLightsContent(btnValue) {
+    const $target = $('.lights-content')
+        .removeClass('visible animate')
+        .filter(`[data-content="${btnValue}"]`);
+
+    // Paso 1: hacer visible
+    $target.addClass('visible');
+
+    // Paso 2: forzar repaint y luego animar
+    requestAnimationFrame(() => {
+        $target.addClass('animate');
+    });
+}
 
     // Ejecutar al cargar
     setTimeout(syncFromCenter, 0);

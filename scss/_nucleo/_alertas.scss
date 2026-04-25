@@ -1,0 +1,65 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+
+.boton-sweetAlert{
+    min-width: 130px;
+    padding: 18px 34px;
+    background-color: #707070;
+    color: v.$blanco;
+    @include m.slice;
+    @include m.sora-regular;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    transition: all ease-in-out .3s;
+    border-radius: 0px;
+    box-shadow: none;
+    border-style: none;
+    border: 1px solid #707070;
+    &:hover,
+    &:active {
+        background-color: transparent;
+        color: #707070;
+    }
+}
+
+.popUpAlert {
+    border-radius: 8px;
+    padding: 30px;
+    background-color: #edeeef;
+}
+
+.ttlAlert {
+    @include m.slice;
+    font-family: "Perpetua-Font", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", Arial, serif, sans-serif;
+    font-size: 30px;
+    letter-spacing: 2.4px;
+    color: #807666;
+    @include m.tablet{
+        font-size: 35px;
+        letter-spacing: 3px;
+    }
+}
+
+.subttlAlert {
+    @include m.slice;
+    font-family: "Tofino-Font", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", Arial, serif, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    color: #707070;
+    margin: 0px;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #363738;
+    border-top: 8px solid #D0C7B8;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+    margin: 25px auto;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}

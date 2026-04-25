@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Progreso por unidad</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f6f6f6;
+    }
+
+    .unit {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .unit-header {
+      width: 100%;
+      padding: 16px;
+      background: #f0f0f0;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .unit-progress {
+      font-weight: bold;
+    }
+
+    .unit-content {
+      display: none;
+      padding: 16px;
+    }
+
+    .unit.open .unit-content {
+      display: block;
+    }
+
+    .unit--completed .unit-header {
+      background: #e6ffe6;
+    }
+
+    .unit--completed .unit-progress {
+      color: green;
+    }
+
+    .lessons {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .lessons li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- UNIDAD 1 -->
+  <div class="unit">
+    <button class="unit-header">
+      <span>Unidad 1</span>
+      <span class="unit-progress">
+        <span class="completed">0</span>/<span class="total">0</span>
+      </span>
+    </button>
+
+    <div class="unit-content">
+      <ul class="lessons">
+        <li>
+          <label>
+            <input type="checkbox" class="lesson-check" />
+            Capítulo 1
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="lesson-check" />
+            Capítulo 2
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="lesson-check" />
+            Capítulo 3
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- UNIDAD 2 -->
+  <div class="unit">
+    <button class="unit-header">
+      <span>Unidad 2</span>
+      <span class="unit-progress">
+        <span class="completed">0</span>/<span class="total">0</span>
+      </span>
+    </button>
+
+    <div class="unit-content">
+      <ul class="lessons">
+        <li>
+          <label>
+            <input type="checkbox" class="lesson-check" />
+            Capítulo A
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="lesson-check" />
+            Capítulo B
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".unit").forEach(unit => {
+      const header = unit.querySelector(".unit-header");
+      const content = unit.querySelector(".unit-content");
+      const checks = unit.querySelectorAll(".lesson-check");
+      const completedEl = unit.querySelector(".completed");
+      const totalEl = unit.querySelector(".total");
+
+      totalEl.textContent = checks.length;
+
+      header.addEventListener("click", () => {
+        unit.classList.toggle("open");
+      });
+
+      function updateProgress() {
+        const completed = [...checks].filter(c => c.checked).length;
+        completedEl.textContent = completed;
+
+        if (completed === checks.length) {
+          unit.classList.add("unit--completed");
+        } else {
+          unit.classList.remove("unit--completed");
+        }
+      }
+
+      checks.forEach(check => {
+        check.addEventListener("change", updateProgress);
+      });
+
+      updateProgress();
+    });
+  </script>
+
+</body>
+</html>

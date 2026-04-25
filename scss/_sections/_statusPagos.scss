@@ -1,0 +1,57 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+
+.payment-message{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        margin: 65px 0;
+        overflow-x: clip;
+        background-color: v.$blanco;
+        @include m.tablet{
+            margin: 72px 0;
+        }
+    h2{
+        @include t.ttl-card;
+        margin-bottom: 30px;
+        color: v.$verde-musgo;
+        span{
+            color: v.$azul-profundo;
+            text-transform: lowercase;
+        }
+    }
+    .curso-item__btn{
+        border-radius: 15px;
+        overflow: hidden;
+        a{
+            min-width: 196px;
+            padding: 18px 20px;
+            border-radius: 15px;
+            text-transform:none;
+            width: auto;
+        }
+    }
+    .payment-message__inner{
+        @include m.laptop{
+            max-width: 65%;
+            margin: 0 auto;
+        }
+        .block-text__text{
+            ul{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .btn-basic--cta-interno.cta-main-solid.bkg-verde{
+            a, button{
+                padding: 20px 15px;
+            }
+        }
+    }
+}

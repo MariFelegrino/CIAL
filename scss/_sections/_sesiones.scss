@@ -1,0 +1,46 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+@use "sass:color";
+
+.sesiones-cards{
+    position: relative;
+    margin: 65px 0;
+    overflow-x: clip;
+    background-color: v.$blanco;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        
+    }
+    &__cards{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 30px 20px;
+        .curso-item{
+            .subttl{
+                color: v.$gris-humo-calido;
+                @include m.sora-medium;
+                font-size: 14px;
+                letter-spacing: 0.14px;
+                text-transform: uppercase;
+                @include m.mobile-l{
+                    font-size: 16px;
+                }
+                @include m.tablet{
+                    font-size: 14px;
+                }
+                @include m.laptop{
+                    font-size: 16px;
+                }
+                @include m.desktop{
+                    font-size: 18px;
+                }
+            }
+
+        }
+    }
+}

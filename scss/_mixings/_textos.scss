@@ -1,15 +1,7 @@
 @use "./mixings" as m;
 @use "../_variables/variables" as v;
 
-/* @mixin tituloH1 {
-    @include m.courgette-regular;
-    @include m.slice;
-    font-size: 28px;
-    letter-spacing: 0;
-    @include m.tablet-xl{
-        font-size: 36px;
-    }
-} */
+
 @mixin tituloH1 {
     @include m.courgette-regular;
     @include m.slice;
@@ -80,6 +72,30 @@
         font-size: 18px;
         letter-spacing: 0.36px;
     }
+    @include m.desktop{
+        font-size: 20px;
+    }
+}
+
+@mixin body1-light {
+    @include m.sora-light;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.36px;
+    @include m.mobile-l{
+        font-size: 18px;
+    }
+    @include m.tablet{
+        font-size: 16px;
+        letter-spacing: 0.32px;
+    }
+    @include m.laptop{
+        font-size: 18px;
+        letter-spacing: 0.36px;
+    }
+    @include m.desktop{
+        font-size: 20px;
+    }
 }
 
 @mixin tituloH3-Simple{
@@ -146,6 +162,29 @@
     }
 }
 
+@mixin body4{
+    @include m.sora-light;
+    @include m.slice;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    @include m.laptop{
+        font-size: 17px;
+    }
+}
+
+@mixin body5 {
+    @include m.sora-regular;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    @include m.laptop{
+        font-size: 18px;
+    }
+    @include m.desktop{
+        font-size: 20px;
+    }
+}
+
 @mixin linksFooter {
     @include m.sora-regular;
     @include m.slice;
@@ -179,4 +218,52 @@
     @include m.slice;
     font-size: 16px;
     letter-spacing: 0.98px;
+}
+
+@mixin ttl-card{
+    @include m.courgette-regular;
+    @include m.slice;
+    font-size: 21px;
+    letter-spacing: 0px;
+    @include m.mobile-l{
+        font-size: 24px;
+    }
+    @include m.tablet{
+        font-size: 26px;
+    }
+}
+
+@mixin body-bold{
+    @include m.sora-bold;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    @include m.laptop{
+        font-size: 18px
+    }
+    @include m.desktop{
+        font-size: 20px;
+    }
+}
+
+
+@mixin body-semibold {
+    @include m.sora-semibold;
+    @include m.slice;
+    font-size: 16px;
+    letter-spacing: 0.36px;
+    @include m.mobile-l{
+        font-size: 18px;
+    }
+    @include m.tablet{
+        font-size: 16px;
+        letter-spacing: 0.32px;
+    }
+    @include m.laptop{
+        font-size: 18px;
+        letter-spacing: 0.36px;
+    }
+    @include m.desktop{
+        font-size: 20px;
+    }
 }

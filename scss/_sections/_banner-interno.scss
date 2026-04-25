@@ -9,19 +9,16 @@ $alturas-minimas: (
     tablet-xl: 75vh,
     laptop: 85vh,
 );
+
+$alturas-minimas-sm: (
+    default: 80vh,
+    tablet: 70vh,
+    tablet-xl: 60vh,
+    laptop: 65vh,
+);
 .banner-interno{
     @include m.styleBase;
-    min-height: map.get($alturas-minimas, default);
     overflow: hidden;
-    @include m.tablet {
-        min-height: map.get($alturas-minimas, tablet);
-    }
-    @include m.tablet-xl {
-        min-height: map.get($alturas-minimas, tablet-xl);
-    }
-    @include m.laptop {
-        min-height: map.get($alturas-minimas, laptop);
-    }
     &__bkg{
         @include m.styleBase;
         display: flex;
@@ -92,5 +89,31 @@ $alturas-minimas: (
         .banner-index{
             display: inline-block;
         }
+    }
+
+    &.banner-sm{
+        min-height: map.get($alturas-minimas-sm, default);
+        @include m.tablet {
+            min-height: map.get($alturas-minimas-sm, tablet);
+        }
+        @include m.tablet-xl {
+            min-height: map.get($alturas-minimas-sm, tablet-xl);
+        }
+        @include m.laptop {
+            min-height: map.get($alturas-minimas-sm, laptop);
+        }
+    }
+}
+
+.banner-interno:not(.banner-sm){
+    min-height: map.get($alturas-minimas, default);
+    @include m.tablet {
+        min-height: map.get($alturas-minimas, tablet);
+    }
+    @include m.tablet-xl {
+        min-height: map.get($alturas-minimas, tablet-xl);
+    }
+    @include m.laptop {
+        min-height: map.get($alturas-minimas, laptop);
     }
 }

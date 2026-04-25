@@ -1,0 +1,336 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+
+@use "../_sections/login";
+
+.payment-gateway{
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+    &__inner{
+        @include m.styleBase;
+        display: flex;
+        gap: 70px;
+        flex-wrap: wrap;
+        @include m.tablet{
+            padding: 0 10%;
+        }
+        @include m.tablet-xl{
+            gap: 44px;
+            padding: 0;
+        }
+    }
+    &__form,
+    &__cart{
+        @include m.styleBase;
+        @include m.tablet-xl{
+            width: calc((100% - 44px) / 2);
+        }
+    }
+    &__form{
+        .ttl-form-cart{
+            @include m.sora-regular;
+            @include m.slice;
+            font-size: 20px;
+            letter-spacing: 0px;
+            color: #4b4b4b;
+            margin-bottom: 16px;
+            @include m.tablet-xl{
+                font-size: 18px;
+            }
+            a{
+                color: v.$azul-profundo;
+                text-decoration: underline;
+                @include m.sora-semibold;
+            }
+        }
+        @include m.tablet-xl{
+            max-width: 42%
+        }
+        @include m.laptop{
+            max-width: none;
+        }
+        form{
+            margin-top: 55px
+        }
+        @extend .sesion_form;
+        padding-top: 0;
+        .cta-actions-form{
+            gap: 16px;
+            /* @include m.laptop{
+                gap: 0 16px;
+            } */
+            button:not(.link-info-cial):not(.join-cial-action):not(.join-cial-action-sn-dec):not(.cancelar):not(.recoveryPSW){
+                @include m.tablet{
+                    flex-grow: 1;
+                    padding: 25px 35px;
+                }
+                @include m.tablet-xl{
+                    width: 100%;
+                }
+                @include m.laptop{
+                    width: auto;
+                }
+            }
+            .join-cial{
+                @include m.tablet-xl{
+                    width: 100%;
+                    margin-top: 16px;
+                }
+                @include m.laptop{
+                    width: auto;
+                    margin-top: 0;
+                }
+
+            }
+            .info-cial{
+                color: #4b4b4b;
+                margin-top: 17px;
+                border-top: 1px solid #707070;
+                padding-top: 20px;
+                width: 100%;
+                font-size: 16px;
+                @include m.tablet-xl{
+                    margin-top: 37px;
+                    padding-top: 0;
+                    border-top: none;
+                    font-size: 15px;
+                }
+                @include m.laptop{
+                    text-align: left;
+                }
+                a.link-info-cial{
+                    color: #4b4b4b;
+                }
+            }
+        }
+
+    }
+    &__cart{
+        .ttl-section-cart{
+            @include m.sora-semibold;
+            @include m.slice;
+            font-size: 20px;
+            letter-spacing: 0px;
+            color: v.$azul-profundo;
+            margin-bottom: 16px;
+            @include m.tablet-xl{
+                font-size: 18px;
+            }
+
+        }
+        @include m.tablet-xl{
+            flex-grow: 1;
+        }
+        @include m.laptop{
+            flex-grow: initial;
+        }
+        .cart{
+            .items-cart{
+                .course-item{
+                    border-radius: 10px;
+                    overflow: hidden;
+                    /* box-shadow: 0px 3px 20px #0000001A; */
+                    @include m.tablet{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-items: stretch;
+                    }
+                    .course-img{
+                        width: 100%;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        @include m.tablet{
+                            width: 31.23%;
+                            position: relative;
+                            padding-bottom: 31.23%;
+                        }
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            aspect-ratio: 180/80;
+                            @include m.tablet{
+                                position: absolute;
+                                aspect-ratio: none;
+                            }
+                            /* aspect-ratio: 390/220;
+                            @include m.tablet{
+                                aspect-ratio: 258/260;
+                            } */
+                        }
+                    
+                    }
+                    .course-info{
+                        @include m.tablet{
+                            width: calc(100% - 31.23%);
+                            padding: 40px 16px;
+                            align-self: center;
+                        }
+                        .course-infoWrap{
+                            padding: 24px 15px;
+                            @include m.tablet{
+                                display: contents
+                            }
+                        }
+                        .title-course{
+                            @include m.sora-semibold;
+                            @include m.slice;
+                            font-size: 18px;
+                            letter-spacing: 0.54px;
+                            color: v.$azul-profundo;
+                            margin-bottom: 24px;
+                            @include m.tablet{
+                            margin-bottom: 12px; 
+                            }
+                        }
+                        .subttl-course{
+                            @include m.sora-medium;
+                            @include m.slice;
+                            font-size: 14px;
+                            letter-spacing: 0.14px;
+                            color: v.$gris-humo-calido;
+                            margin-bottom: 14px;
+                            span{
+                                color: v.$azul-noche;
+                            }
+                        }
+                        .description-course{
+                            @include m.sora-light;
+                            @include m.slice;
+                            font-size: 16px;
+                            letter-spacing: 0.32px;
+                            color: v.$azul-noche;
+                            margin-bottom: 0;
+                            @include m.tablet{
+                                margin-bottom: 12px;
+                            }
+                        }
+                        .curso-item__btn{
+                            
+                            a{
+
+                            }
+                        }
+                    }
+                    &__price{
+                        padding: 0 15px;
+                        display: inline-flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        margin-top: 7px;
+                        gap: 10px;
+                        @include m.tablet{
+                            padding: 0;
+                        }
+                        @include m.laptop{
+                            gap: 20px;
+                            justify-content: flex-start;
+                        }
+                        .offer-price{
+                            color: v.$azul-profundo;
+                            @include m.sora-semibold;
+                            @include m.slice;
+                            font-size: 24px;
+                            letter-spacing: 0px;
+                            @include m.mobile-l{
+                                font-size: 26px;
+                            }
+                            /* @include m.desktop{
+                                font-size: 30px;
+                            } */
+                        }
+                        .original-price{
+                            color: v.$gris-humo-calido;
+                            /* @include t.body5; */
+                            @include t.body1;
+                            text-decoration: line-through;
+                            @include m.desktop{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .total-cart{
+                margin-top: 40px;
+                background-color: rgba($color: v.$gris-humo-calido, $alpha: 0.35);
+                @include m.sora-semibold;
+                @include m.slice;
+                color: v.$azul-profundo;
+                font-size: 18px;
+                letter-spacing: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px 35px 25px 16px;
+                .total-txt{
+                    
+                }
+                .total-number{
+
+                }
+            }
+        }
+        .info{
+            margin-top: 40px;
+            &-notes{
+                padding-bottom: 32px;
+                border-bottom: 1px solid #707070;
+                .title-info{
+                    @include m.sora-semibold;
+                    @include m.slice;
+                    color: v.$azul-profundo;
+                    font-size: 18px;
+                    letter-spacing: 0;
+                    margin-bottom: 20px;
+                }
+                .info-info{
+                    @include m.slice;
+                    @include m.sora-light;
+                    color: v.$azul-noche;
+                    font-size: 16px;
+                    letter-spacing: 0.32px;
+                    ul{
+                        li{
+                            &::marker{
+                                color: v.$azul-profundo;
+                                font-size: 29px;
+                            }
+                            p{
+
+                            }
+                        }
+                    }
+                }
+            }
+            &-help{
+                @include m.slice;
+                @include m.sora-regular;
+                font-size: 18px;
+                letter-spacing: 0px;
+                color: #4b4b4b;
+                text-align: center;
+                margin-bottom: 0;
+                margin-top: 35px;
+                @include m.tablet-xl{
+                    text-align: left;
+                }
+                a{
+                    @include m.sora-semibold;
+                    text-decoration: underline;
+                    color: #4b4b4b;
+                    transition: all ease-in-out .3s;
+                    &:hover,
+                    &:active{
+                        color: lighten(v.$azul-profundo, 6%);
+                    }
+                }
+            }
+        }
+    }
+}

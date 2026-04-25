@@ -2,6 +2,16 @@
 @use "../_variables/variables" as v;
 @use "sass:color";
 
+@keyframes animName {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
 .top-header{
     @include m.styleBase;
     display: flex;
@@ -114,6 +124,9 @@
         @include m.mobile-l{
             width: 130px;
         }
+        @include m.laptop{
+            margin-right: 0;
+        }
     }
 }
 .content-header-wrap{
@@ -154,6 +167,79 @@
                     }
                 }
             }
+            .header-desktop-translate-action:not(.btn-icon){   
+                display: none;
+                @include m.tablet{
+                    display: block;
+                    position: relative;
+                }       
+                a{
+                    width: 60px;
+                    height: 60px;
+                    display: inline-block;
+                    img,svg{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    span{
+                        color: #fff;
+                    }
+                }
+            }
+            .header-desktop-translate-action{
+                a{
+                    position: relative;
+                }
+            }
+            .btn-icon.header-desktop-translate-action,
+            .header-desktop-translate-action{
+                img,svg{
+                    display: block;
+                    -webkit-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+                    transform: rotate(-15deg);
+                }
+                span{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        z-index: 10;
+                        font-size: 17px;
+                        letter-spacing: 0px;
+                        @include m.sora-regular;
+                        text-transform: uppercase;
+                        @include m.tablet{
+                            font-size: 15px;
+                        }
+                        @include m.laptop{
+                            font-size: 14px;
+                        }
+                }
+                &:hover{
+                    img{
+                        animation: animName 0.5s linear;
+                    }
+                }
+            }
+            .btn-icon.header-desktop-translate-action{
+                a, button{
+                    padding: 0;
+                    &:not(:has(img)) {
+                        width: 100%;
+                        height: 100%;  
+                    }
+                }
+                img, svg{
+                    width: 70px;
+                    height: 70px;
+                    @include m.tablet{
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
         }
         @include m.tablet{
             width: auto;
@@ -183,8 +269,8 @@
         border: none;
         margin-left: 20px;
         &:focus:not(:focus-visible) {
-            color: white;
-            box-shadow: 0 0 0 .20rem;
+            color: transparent;
+            box-shadow: none;
         }
     }
     .navbar-toggler-icon {
@@ -217,6 +303,7 @@
                 flex-direction: row;
                 padding-top: 18px;
                 align-items: center;
+                justify-content: space-between;
             }
             .navbar-nav{
                 padding: 38px 25px;
@@ -229,6 +316,9 @@
                     height: auto;
                     overflow-y: initial;
                     margin-bottom: 0;
+                    max-width: calc(100% - 350px);
+                    flex-wrap: wrap;
+                    gap: 16px 0;
                 }
             }
             .navbar-actions{
@@ -240,6 +330,12 @@
                 @include m.laptop{
                     position: relative;
                     padding-bottom: 0px;
+                }
+                .hide-element-scroll{
+                    display: none;
+                    @include m.laptop{
+                        display: block;
+                    }
                 }
             }
         }
@@ -491,11 +587,45 @@
                 }
             }
         }
+
     }
     &.scroll-down{
         .top-header{
             display: none !important;
         }
+        .btn-basic--link.btn--solid-main,
+        .btn-basic--main.btn--solid-main{
+            display: none;
+        }
+        .btns-icons-wrap{
+            @include m.laptop{
+                display: flex;
+            }
+            &.invisible-icons{
+                @include m.tablet{
+                    display: flex;
+                }
+            }
+            .btn-icon.hide-element-scroll{
+                display: none;
+            }
+        }
+        .btn-basic--sesion-logueado{
+            @include m.tablet{
+                border-right: 1px solid #FFFFFF;
+                padding: 10px 14px 10px 0;
+            }
+            @include m.laptop{
+                border-right: 1px solid #FFFFFF;
+            }
+        }
+        .header-desktop-translate-action{
+            &.hide-element-scroll{
+                @include m.tablet{
+                    display: none !important;
+                }
+            }
+        } 
     }
     &.scroll-up{
         .navbar-brand-wrap{
@@ -508,6 +638,9 @@
                     width: 130px;
                 }
             }
+        }
+        .btns-icons-wrap{
+
         }
     }
 

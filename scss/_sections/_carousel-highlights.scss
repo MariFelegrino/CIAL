@@ -1,6 +1,7 @@
 @use "../_mixings/mixings" as m;
 @use "../_variables/variables" as v;
 @use "../_mixings/textos" as t;
+@use "sass:color";
 
 
 .carousel-highlights{
@@ -241,9 +242,39 @@
             p:last-of-type{
               margin: 0;
             }
+            .btn-basic--icon-card{
+              margin-top: 20px;
+              a,button{
+                color: #EDC17B;
+              }
+            }
           }
         }
       }
     }
   }
 }
+
+
+/* Capa que hace la cortinilla */
+.carousel-highlights-cards-item-img::after {
+    content: "";
+    width: 110%;
+    position: absolute;
+    inset: 0;
+    /* background-color: transparentize($color: v.$azul-noche, $amount: 0.5); */
+    background-color: color.adjust(v.$azul-noche, $alpha: -0.5);
+    backdrop-filter: blur(15px) brightness(1);
+    transform: translateX(0);
+    transition: transform 0.8s ease-in-out;
+    transition-delay: 0.5s;
+    will-change: transform;
+}
+
+/* Cuando el slide está activo */
+.carousel-highlights-cards-item.animate{
+  .carousel-highlights-cards-item-img::after {
+      transform: translateX(-110%);
+  }
+}
+

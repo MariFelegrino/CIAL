@@ -1,0 +1,548 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+
+.styleInput{
+    appearance: none;
+    @include m.sora-light;
+    @include m.slice;
+    font-size: 17px;
+    letter-spacing: 0px;
+    color: #4B4B4B;
+    padding: 16.5px 18.5px;
+    border: 1px solid #707070;
+    border-radius: 6px;
+    outline:none; /*Borde para cuando esta en focus-visible*/
+    background-color: transparent;
+    width: 100%;
+    position: relative;
+    &:focus {
+        border-color: v.$azul-profundo;
+        box-shadow:0 0 0 0.25rem transparentize($color: v.$azul-profundo, $amount: 0.9);
+    }
+}
+
+.card-header.bg-white{
+    @include t.tituloH3;
+    background-color: v.$azul-profundo !important;
+    color: v.$blanco;
+    /* flex-direction: column; */
+    flex-grow: 1;
+    gap: 20px;
+    @include m.tablet{
+        flex-direction: row;
+    }
+    .small.text-muted{
+        color: v.$dorado-calido !important;
+        font: inherit;
+    }
+    .btn-group-vertical>.btn, .btn-group>.btn{
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    .btn-group, .btn-group-vertical{
+        justify-content: space-between;
+        width: 100%;
+        @include m.tablet{
+            width: auto;
+        }
+    }
+    .btn.disabled, 
+    .btn:disabled, 
+    fieldset:disabled .btn {
+        color: v.$azul-profundo;
+        border-color: v.$azul-profundo;
+    }
+    .btn-outline-secondary{
+        background-color: v.$dorado-calido !important;
+        color: v.$azul-profundo;
+        border: 1px solid v.$azul-profundo;
+        transition: all ease-in-out .3s;
+        &:hover,
+        &:active{
+            background-color: darken(v.$dorado-calido, 8%);
+            color: v.$azul-noche !important;
+            border-color: darken(v.$dorado-calido, 4%);
+        }
+    }
+}
+
+
+
+
+.form-group{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    label{
+        @include m.sora-regular;
+        @include m.slice;
+        &:not(.no-capitalice){
+            text-transform: capitalize;
+        }
+        &:not(.label-secundary){
+            font-size: 18px;
+            letter-spacing: 0.36px;
+            margin-bottom: 16px;
+            color: v.$azul-profundo;
+        }
+        &.label-secundary{
+            font-size: 16px;
+            letter-spacing: 0px;
+            color: #4b4b4b;
+            margin: 14px 0 24px;
+        }
+        &.label-hidden{
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            padding: 0; 
+            margin: -1px; 
+            overflow: hidden; 
+            clip: rect(0, 0, 0, 0); 
+            white-space: nowrap; 
+            border: 0;
+        }
+    }
+    select.form-control{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include m.sora-light;
+        @include m.slice;
+        font-size: 17px;
+        letter-spacing: 0px;
+        color: #4B4B4B;
+        padding: 16.5px 18.5px;
+        border: 1px solid #707070;
+        border-radius: 6px;
+        outline:none; /*Borde para cuando esta en focus-visible*/
+        background-color: transparent;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        transition: all ease-in-out .3s;
+        &:focus,
+        &:hover {
+            border-color: v.$azul-profundo;
+            box-shadow:0 0 0 0.25rem transparentize($color: v.$azul-profundo, $amount: 0.9);
+        }
+    }
+    i{
+        position: absolute;
+        right: 30px;
+        top: 30%;;
+        width: 12px;
+        height: 12px;
+        border-left: 2px solid v.$azul-noche;
+        border-bottom: 2px solid v.$azul-noche;
+        transform: rotate(-45deg) translate(100%, 100%);
+        transition: all ease-in-out .3s;
+    }
+    &.openSelect{
+        width: 100%;
+        select{
+            &:hover{
+                background-color: v.$azul-profundo !important;
+                color: v.$blanco;
+                outline: none;
+                box-shadow: 0 0 0 0.025rem color.adjust($color: v.$azul-noche, $alpha: 0.5);
+            }
+            &:focus {
+                border-color: v.$azul-profundo;
+                box-shadow:0 0 0 0.25rem transparentize($color: v.$azul-profundo, $amount: 0.9);
+            }
+        }
+        i{
+            transform: rotate(135deg) translateY(0%);
+            border-left: 2px solid v.$blanco;
+            border-bottom: 2px solid v.$blanco;
+        }
+        
+    }
+    &:hover{
+        select{
+            &:hover{
+                background-color: v.$blanco !important;
+                color: v.$azul-profundo;
+            }
+            &:focus{
+                outline: none;
+                box-shadow: 0 0 0 0.025rem color.adjust($color: v.$azul-noche, $alpha: 0.5);
+            }
+        }
+        i{
+            border-left: 2px solid v.$azul-noche;
+            border-bottom: 2px solid v.$azul-noche;
+        }
+    }
+    .filters-select {
+        width: 100%;  
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border: 1px solid v.$azul-profundo;
+        font-size: 16px;
+        color: v.$azul-profundo;
+        padding: 14px 20px;
+        border-radius: 18px;
+        height: 100%;
+        @include m.mobile-l{
+            font-size: 18px;
+        }
+        @include m.tablet{
+            padding: 14px 20px;
+        }
+    }
+
+    input:not([type="date"]:not([type="time"])){
+        @extend .styleInput;
+    }
+    input[type="date"] {
+        @extend .styleInput;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='-1 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:sketch='http://www.bohemiancoding.com/sketch/ns' fill='%236E767B' stroke='%236E767B'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Ctitle%3Ecalendar%3C/title%3E%3Cdesc%3ECreated with Sketch Beta.%3C/desc%3E%3Cdefs%3E%3C/defs%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' sketch:type='MSPage'%3E%3Cg id='Icon-Set' sketch:type='MSLayerGroup' transform='translate(-309.000000, -359.000000)' fill='%236E767B'%3E%3Cpath d='M323,383 L325,383 L325,385 L323,385 L323,383 Z M323,387 L325,387 C326.104,387 327,386.104 327,385 L327,383 C327,381.896 326.104,381 325,381 L323,381 C321.896,381 321,381.896 321,383 L321,385 C321,386.104 321.896,387 323,387 L323,387 Z M315,383 L317,383 L317,385 L315,385 L315,383 Z M315,387 L317,387 C318.104,387 319,386.104 319,385 L319,383 C319,381.896 318.104,381 317,381 L315,381 C313.896,381 313,381.896 313,383 L313,385 C313,386.104 313.896,387 315,387 L315,387 Z M323,375 L325,375 L325,377 L323,377 L323,375 Z M323,379 L325,379 C326.104,379 327,378.104 327,377 L327,375 C327,373.896 326.104,373 325,373 L323,373 C321.896,373 321,373.896 321,375 L321,377 C321,378.104 321.896,379 323,379 L323,379 Z M315,375 L317,375 L317,377 L315,377 L315,375 Z M315,379 L317,379 C318.104,379 319,378.104 319,377 L319,375 C319,373.896 318.104,373 317,373 L315,373 C313.896,373 313,373.896 313,375 L313,377 C313,378.104 313.896,379 315,379 L315,379 Z M337,367 L311,367 L311,365 C311,363.896 311.896,363 313,363 L317,363 L317,364 C317,364.553 317.447,365 318,365 C318.553,365 319,364.553 319,364 L319,363 L329,363 L329,364 C329,364.553 329.447,365 330,365 C330.553,365 331,364.553 331,364 L331,363 L335,363 C336.104,363 337,363.896 337,365 L337,367 L337,367 Z M337,387 C337,388.104 336.104,389 335,389 L313,389 C311.896,389 311,388.104 311,387 L311,369 L337,369 L337,387 L337,387 Z M335,361 L331,361 L331,360 C331,359.448 330.553,359 330,359 C329.447,359 329,359.448 329,360 L329,361 L319,361 L319,360 C319,359.448 318.553,359 318,359 C317.447,359 317,359.448 317,360 L317,361 L313,361 C310.791,361 309,362.791 309,365 L309,387 C309,389.209 310.791,391 313,391 L335,391 C337.209,391 339,389.209 339,387 L339,365 C339,362.791 337.209,361 335,361 L335,361 Z M331,375 L333,375 L333,377 L331,377 L331,375 Z M331,379 L333,379 C334.104,379 335,378.104 335,377 L335,375 C335,373.896 334.104,373 333,373 L331,373 C329.896,373 329,373.896 329,375 L329,377 C329,378.104 329.896,379 331,379 L331,379 Z M331,383 L333,383 L333,385 L331,385 L331,383 Z M331,387 L333,387 C334.104,387 335,386.104 335,385 L335,383 C335,381.896 334.104,381 333,381 L331,381 C329.896,381 329,381.896 329,383 L329,385 C329,386.104 329.896,387 331,387 L331,387 Z' id='calendar' sketch:type='MSShapeGroup'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 17px center;
+        background-size: 20px;
+        &::-webkit-calendar-picker-indicator {
+            /* Oculta el icono del selector de fecha en navegadores WebKit */
+            position:absolute;
+            width:25px;
+            padding: 10px 15px;
+            height:100%;
+            top:0;
+            right:0;
+            bottom:0;
+            opacity:0;
+            cursor:pointer;
+            color: #6E767B;
+            background: v.$azul-profundo;
+        }
+        &:hover{
+            &::-webkit-calendar-picker-indicator { 
+                opacity: 0.05; 
+            }
+            &::-webkit-calendar-picker-indicator{
+                &:hover{
+                    opacity:0.2;
+                }
+            }
+        }
+    }
+    input[type="time"]{
+        @extend .styleInput;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' stroke='%23142c3d' stroke-width='2' fill='none'/%3E%3Cpath d='M12 7v6l4 2' stroke='%23142c3d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 17px center;
+        background-size: 20px;
+        &::-webkit-calendar-picker-indicator{
+            position:absolute;
+            width:25px;
+            padding: 10px 15px;
+            height:100%;
+            top:0;
+            right:0;
+            bottom:0;
+            opacity:0;
+            cursor:pointer;
+            color: #6E767B;
+            background: v.$azul-profundo;
+        }
+        &:hover{
+            &::-webkit-calendar-picker-indicator { 
+                opacity: 0.05; 
+            }
+            &::-webkit-calendar-picker-indicator{
+                &:hover{
+                    opacity:0.2;
+                }
+            }
+        }
+    }
+}
+
+.small{
+    @include m.sora-regular;
+    @include m.slice;
+    color: v.$azul-noche !important;
+    font-size: 16px;
+    @include m.tablet{
+        font-size: 18px;
+    }
+    &:not(.text-muted){
+        color: red;
+    }
+}
+.text-muted{
+    @include m.sora-regular;
+    @include m.slice;
+    font-size: 16px;
+    @include m.tablet{
+        font-size: 18px;
+    }
+}
+#reservaInfo.text-muted{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.font-weight-bold{
+    @include m.sora-semibold;
+    @include m.slice;
+    color: v.$azul-noche;
+    font-size: 16px;
+    @include m.tablet{
+        font-size: 18px;
+    }
+}
+
+.table>:not(caption)>*>th {
+    background-color: v.$azul-noche !important;
+    color: v.$arena-clara !important;
+    .font-weight-bold,
+    .small{
+        color: inherit !important;
+    }
+}
+
+
+/*Botones de Sesiones*/
+.style-Btn{
+    padding: 25px 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+    width: -webkit-fill-available;
+}
+.style-badge{
+    font-size: 14px;
+    padding: 5px;
+}
+#calRoot.table-responsive{
+    .btn-block+.btn-block {
+        margin-top: .5rem;
+    }
+    .btn-outline-success{
+        @extend.style-Btn;
+        border: 1px solid v.$verde-musgo !important;
+        color: v.$verde-musgo;
+        &:hover{
+            background-color: v.$verde-musgo !important;
+            border-color: v.$verde-musgo !important;
+            color: v.$blanco;
+        }
+    }
+    .badge-success{
+        @extend .style-badge;
+        background-color: v.$verde-musgo !important;
+        border-color: v.$verde-musgo !important;
+    }
+    .btn-outline-secondary{
+        @extend.style-Btn;
+        background-color: v.$dorado-calido !important;
+        border: 1px solid v.$arena-clara !important;
+        color: v.$azul-noche;   
+        &:hover{
+            background-color: v.$azul-noche !important;
+            border-color: v.$azul-noche !important;
+            color: v.$arena-clara
+        }
+    }
+    .badge-secondary{
+        @extend .style-badge;
+        background-color: v.$arena-clara !important;
+        border-color: v.$arena-clara !important;
+        color: v.$azul-noche;
+    }
+}
+
+
+
+//Pantalla de Administración de Grupos
+.h4{
+    @include t.tituloH2;
+    flex-grow: 1;
+    text-align: center;
+    @include m.tablet{
+        text-align: left;
+    }
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    margin-bottom: 35px;
+}
+
+#tblSesiones>:not(caption)>*>,
+#tblGrupos>:not(caption)>*>{
+    th{
+        @include m.sora-semibold;
+        @include m.slice;
+        font-size: 16px;
+        @include m.tablet{
+            font-size: 18px;
+        }
+    }
+    td{
+        @include m.sora-regular;
+        @include m.slice;
+        font-size: 16px;
+        color: #4B4B4B !important;
+        @include m.tablet{
+            font-size: 18px;
+        }
+    }
+}
+
+#editPanel{
+    .card-body{
+        strong{
+            @include t.tituloH3;
+            color: v.$azul-profundo;
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin-top: 25px;
+            @include m.tablet{
+                width: auto;
+                margin-top: 0;
+            }
+        }
+    }
+}
+#btnCancelarEdicion,
+#btnAddSesion,
+#btnGuardarGrupo,
+#btnNuevoGrupo{
+    padding: 10px 25px;
+    min-width: 130px;
+    padding: 13px 35px;
+    @include m.slice;
+    @include m.sora-regular;
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    text-align: center;
+    transition: all ease-in-out .3s;
+    border-radius: 12px;
+    box-shadow: none;
+    border-style: none;
+    &:hover,
+    &:active {
+        transform: translateY(-1px);
+    }
+}
+#btnNuevoGrupo{
+    padding: 18px 35px;
+    width: -webkit-fill-available;
+    background-color: v.$azul-noche;
+    color: v.$blanco;
+    &:hover,
+    &:active {
+        background-color: darken(v.$azul-noche, 8%);
+        border-color: darken(v.$azul-noche, 8%);
+    }
+    @include m.tablet{
+        min-width: 130px;
+        padding: 13px 35px;
+        width: auto;
+    }
+}
+
+#btnAddSesion{
+    padding: 18px 35px;
+    width: -webkit-fill-available;
+    background-color: v.$azul-profundo;
+    color: v.$blanco;
+    margin-bottom: 25px;
+    &:hover,
+    &:active {
+        background-color: darken(v.$azul-profundo, 8%);
+        border-color: darken(v.$azul-profundo, 8%);
+    }
+    @include m.tablet{
+        min-width: 130px;
+        padding: 13px 35px;
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+
+#btnGuardarGrupo{
+    min-width: 130px;
+    padding: 13px 35px;
+    background-color: v.$verde-musgo;
+    color: v.$blanco;
+    &:hover,
+    &:active {
+        background-color: darken(v.$verde-musgo, 8%);
+        border-color: darken(v.$verde-musgo, 8%);
+    }
+}
+
+#listPanel,
+#editPanel{
+    .btn-outline-secondary,
+    .btn-outline-danger{
+        padding: 10px 25px;
+        min-width: 110px;
+        @include m.slice;
+        @include m.sora-regular;
+        font-size: 16px;
+        letter-spacing: 1.6px;
+        text-align: center;
+        transition: all ease-in-out .3s;
+        border-radius: 12px;
+        box-shadow: none;
+        border-style: none;
+        &:hover,
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+    .btn-outline-danger{
+        background-color: v.$blanco;
+        color:  #C44536;
+        border: 1px solid  #C44536;
+        &:hover,
+        &:active {
+            background-color: darken( #C44536, 8%);
+            border-color: darken( #C44536, 8%);
+            color: v.$blanco;
+        }
+    }
+    .btn-outline-secondary{
+        background-color: v.$blanco;
+        color: v.$azul-profundo;
+        border: 1px solid v.$azul-profundo;
+        &:hover,
+        &:active {
+            background-color: darken(v.$azul-profundo, 8%);
+            border-color: darken(v.$azul-profundo, 8%);
+            color: v.$blanco;
+        }
+    }
+}
+
+.d-flex{
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+
+.subttlAlert{
+    .form-group i{
+        top: 50%;
+        transform: rotate(-45deg) translate(100%, 100%);
+    }
+    
+}

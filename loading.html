@@ -1,0 +1,88 @@
+<!-- ===== LOADER ELEGANTE ===== -->
+<div id="luxLoader" class="lux-loader active">
+    <div class="lux-loader__box">
+        <div class="lux-loader__spinner"></div>
+        <p>Cargando información...</p>
+    </div>
+</div>
+
+<style>
+.lux-loader {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.lux-loader.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lux-loader__box {
+    background: rgb(255, 255, 255);
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    text-align: center;
+    animation: fadeInUp .4s ease;
+}
+
+.lux-loader__spinner {
+    width: 45px;
+    height: 45px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #1e3a8a;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 0.9s linear infinite;
+}
+
+.lux-loader__box p {
+    font-size: 14px;
+    color: #374151;
+    letter-spacing: 1px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
+
+<script>
+// Mostrar loader
+function showLoader() {
+    document.getElementById("luxLoader").classList.add("active");
+}
+
+// Ocultar loader
+function hideLoader() {
+    document.getElementById("luxLoader").classList.remove("active");
+}
+
+// 🔥 Automático en todas las peticiones AJAX
+$(document).ajaxStart(function () {
+    showLoader();
+}).ajaxStop(function () {
+    hideLoader();
+});
+</script>
+<!-- ===== FIN LOADER ===== -->

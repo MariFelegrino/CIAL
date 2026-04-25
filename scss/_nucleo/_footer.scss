@@ -124,16 +124,23 @@
                 justify-content: space-between;
             }
             .policies-links{
+                @include m.tablet{
+                    max-width: 50%;
+                }
                 ul{
                 list-style: none;
                 padding-left: 0;
                 display: flex;
-                gap: 10px;
-                flex-direction: column;
+                gap: 10px 16px;
+                flex-direction: row;
                 flex-wrap: wrap;
                 margin-bottom: 0;
+                justify-content: center;
+                @include m.tablet{
+                    justify-content: left;
+                }
                 @include m.laptop{
-                    gap: 5px;
+                    gap: 5px 16px;
                 }
                 li{
                     a, span, p{

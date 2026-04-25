@@ -1,0 +1,386 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+.perfil{
+    @include m.styleBase;
+    &__inner{
+        @include m.styleBase;
+        @include m.tablet-xl{
+            display: flex;
+        }
+        .ttl-section-form{
+            @include m.styleBase;
+            margin-bottom: 50px;
+            h1,h2,h3,h4,h5,h6,p,span{
+                @include m.sora-bold;
+                @include m.slice;
+                font-size: 20px;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: v.$azul-profundo;
+            }
+        }
+        .sidebar_main, 
+        .forms,
+        .course-cards{
+            padding-top: 65px;
+        }
+        .sidebar_main{
+            @include m.tablet-xl{
+                width: 25%;
+                border-right: 1px solid #c4c4c4;
+                padding-bottom: 65px;
+            }
+            @include m.laptop{
+                width: 21.88%;
+            }
+            .user{
+                margin-bottom: 24px;
+                text-align: center;
+                width: 71%;
+                margin: 0 auto;
+                @include m.tablet-xl{
+                    width: 100%;
+                }
+                img{
+                    width: 142px;
+                    height: 142px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                p{
+                    margin-top: 24px;
+                    @include m.slice;
+                    @include m.sora-semibold;
+                    font-size: 18px;
+                    letter-spacing: 0.36px;
+                    color: v.$azul-profundo;
+                    @include m.tablet-xl{
+                        padding: 0 16px;
+                    }
+                }
+            }
+            .tabs-mobile{
+                position: relative;
+                margin-top: 24px;
+                @include m.tablet-xl{
+                    display: none;
+                }
+                select{
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    border-bottom: 7px solid v.$azul-profundo;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    position: relative;
+                    background-color: v.$blanco;
+                    outline: none;
+                    @include m.sora-regular;
+                    font-size: 20px;
+                    letter-spacing: 0.6px;
+                    color: v.$azul-profundo;
+                    padding: 23px 60px 23px 20px;
+                    width: 100%;
+                    display: inline-block;
+                    position: relative;
+                    transition: all ease-in-out .3s;
+                    text-wrap: auto;
+                }
+                .icon{
+                    position: absolute;
+                    width: 45px;
+                    right: 11px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    transition: all ease-in-out .3s;
+                    pointer-events: none;
+                    svg{
+                        object-fit: contain;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .options-links{
+                display: none;
+                @include m.tablet-xl{
+                    display: block;
+                }
+                ul{
+                    list-style: none;
+                    padding-left: 0;
+                    li{
+                        display: inline-flex;
+                        width: 100%;
+                        border-bottom: 1px solid #c4c4c4;
+                        &:first-of-type{
+                            border-top: 1px solid #c4c4c4;
+                        }
+                        a{
+                            @include m.sora-regular;
+                            @include m.slice;
+                            color: transparentize($color: v.$gris-humo-calido, $amount: 0.34);
+                            text-transform: capitalize; 
+                            letter-spacing: 0.36px;
+                            font-size: 18px;
+                            text-decoration: none;
+                            padding: 24px 18.5px;
+                            width: 100%;
+                            text-align: center;
+                            transition: all ease-in-out .3s;
+                            &.active-option{
+                                color: v.$azul-profundo;
+                            }
+                            &:hover{
+                                background-color: lighten(v.$azul-profundo, 10%);
+                                color: v.$blanco;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            .close-sesion{
+                margin-top: 24px;
+                display: flex;
+                justify-content: center;
+                @include m.tablet-xl{
+                    margin-top: 40px;
+                }
+                a,button{
+                    @include m.sora-light;
+                    @include m.slice;
+                    font-size: 17px;
+                    letter-spacing: 0px; 
+                    text-decoration: none; 
+                    text-transform: capitalize;
+                    background-color: v.$azul-profundo;
+                    border-radius: 28px;
+                    padding: 17px 18.5px;
+                    text-align: center;
+                    min-width: 227px;
+                    color: v.$blanco;
+                    border-width: 1px;
+                    border-style: none;
+                    line-height: 1.25rem;
+                    transition: all ease .3s;
+                    &:hover,
+                    &:active {
+                        background-color: darken(v.$azul-profundo, 8%);
+                        border-color: darken(v.$azul-profundo, 8%);
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+        }
+        .forms{
+            @include m.tablet{
+                width: 80%;
+                margin: 0 auto;
+            }
+            @include m.tablet-xl{
+                width: calc(100% - 25%);
+                padding-left: 36px;
+            }
+            @include m.laptop{
+                width: calc(100% - 21.88%);
+            }
+            .about-me,
+            .password{
+                padding-bottom: 65px
+            }
+            .cta-action-form{
+                a, button{
+                    min-width: 227px;
+                    transition: all ease .3s;
+                    &:hover,
+                    &:active {
+                        background-color: darken(v.$azul-profundo, 8%);
+                        border-color: darken(v.$azul-profundo, 8%);
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+            .cta-actions-form{
+                gap: 39px;
+                a, button{
+                    &:not(.recoveryPSW):not(.join-cial-action){
+                        min-width: 227px;
+                        transition: all ease .3s;
+                        &:hover,
+                        &:active {
+                            background-color: darken(v.$azul-profundo, 8%);
+                            border-color: darken(v.$azul-profundo, 8%);
+                            transform: translateY(-1px);
+                        }
+                    }
+                    
+                }
+            }
+            .about-me{
+                .profile__image{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 24px;
+                    margin-bottom: 50px;
+                    @include m.tablet{
+                        justify-content: flex-start;
+                    }
+                    @include m.tablet-xl{
+                        gap: 60px;
+                    }
+                    .user{
+                        img{
+                            width: 142px;
+                            height: 142px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                    .options-profileImage{
+                        text-align: center;
+                        @include m.tablet{
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+        .course-cards{
+            padding-bottom: 65px;
+            .no-courses{
+                p, ul{
+                    @include t.body1;
+                    color: color.adjust(v.$gris-humo-calido, $alpha:-0.25);
+                    a{
+                        @include t.body1;
+                        @include m.slice;
+                        color: #4B4B4B;
+                        transition: all ease-in-out .3s;
+                        &:hover,
+                        &:active{
+                            color: lighten(v.$azul-profundo, 6%);
+                        }
+                    }
+                }
+                
+            }
+            .course-cards-wrap{
+                display: flex;
+                gap: 50px;
+                flex-wrap: wrap;
+                flex-direction: column;
+                @include m.tablet{
+                    gap: 30px;
+                }
+            }
+             @include m.tablet{
+                width: 80%;
+                margin: 0 auto;
+            }
+            @include m.tablet-xl{
+                width: calc(100% - 25%);
+                padding-left: 36px;
+            }
+            @include m.laptop{
+                width: calc(100% - 21.88%);
+            }
+            .course-item{
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0px 3px 20px #0000001A;
+                @include m.tablet{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: stretch;
+                }
+                .course-img{
+                    width: 100%;
+                    @include m.tablet{
+                        width: 31.23%;
+                        position: relative;
+                        /* padding-bottom: 31.23%; */
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        aspect-ratio: 390/220;
+                        @include m.tablet{
+                            position: absolute;
+                            aspect-ratio: none;
+                        }
+                        /* aspect-ratio: 390/220;
+                        @include m.tablet{
+                            aspect-ratio: 258/260;
+                        } */
+                    }
+                
+                }
+                .course-info{
+                    @include m.tablet{
+                        width: calc(100% - 31.23%);
+                        padding: 40px 16px;
+                        align-self: center;
+                    }
+                    .course-infoWrap{
+                        padding: 24px 15px;
+                        @include m.tablet{
+                            display: contents
+                        }
+                    }
+                    .title-course{
+                        @include m.sora-semibold;
+                        @include m.slice;
+                        font-size: 18px;
+                        letter-spacing: 0.54px;
+                        color: v.$azul-profundo;
+                        margin-bottom: 24px;
+                        @include m.tablet{
+                           margin-bottom: 12px; 
+                        }
+                    }
+                    .subttl-course{
+                        @include m.sora-medium;
+                        @include m.slice;
+                        font-size: 14px;
+                        letter-spacing: 0.14px;
+                        color: v.$gris-humo-calido;
+                        margin-bottom: 14px;
+                        span{
+                            color: v.$azul-noche;
+                        }
+                    }
+                    .description-course{
+                        @include m.sora-light;
+                        @include m.slice;
+                        font-size: 16px;
+                        letter-spacing: 0.32px;
+                        color: v.$azul-noche;
+                        margin-bottom: 0;
+                        @include m.tablet{
+                            margin-bottom: 12px;
+                        }
+                    }
+                    .curso-item__btn{
+                        
+                        a{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

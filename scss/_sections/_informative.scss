@@ -1,0 +1,12 @@
+@use "../_mixings/mixings" as m;
+@use "../_variables/variables" as v;
+@use "../_mixings/textos" as t;
+@use "sass:color";
+
+.informative{
+    @include m.styleBase;
+    margin: 65px 0;
+    @include m.tablet{
+        margin: 72px 0;
+    }
+}

@@ -6,7 +6,7 @@
 .btn-basic{
     position: relative;
     color: inherit;
-    &:not(.btn-basic--link):not(.btn-basic--icon-card){
+    &:not(.btn-basic--link):not(.btn-basic--icon-card):not(.btn-basic--icon-radious){
         a, button{
             @include m.slice;
             font-size: 18px;
@@ -124,6 +124,10 @@
             text-align: center;
             @include m.laptop{
                 display: inline-block;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            @include m.desktop{
                 padding: 10px 20px;
             }
         }
@@ -137,6 +141,10 @@
             }
         }
         &.btn--solid-main{
+            display: none;
+            @include m.laptop{
+                display: flex;
+            }
             a, button{
                 background-color: v.$blanco;
                 color: v.$azul-profundo;
@@ -183,9 +191,6 @@
                 transition: all .12s ease;
             }
         }
-
-        
-
         &-card{
             @extend .btn-basic--icon;
             a, button{
@@ -198,6 +203,65 @@
                 }
                 @include m.tablet{
                     font-size: 18px;
+                }
+            }
+        }
+        &-radious{
+            @extend .btn-basic--icon;
+            a, button{
+                @include m.slice;
+                font-size: 16px;
+                letter-spacing: 0.32px; 
+                text-decoration: none; 
+                border-radius: 28px;
+                background-color: transparent;
+                padding: 17px 24px;
+                transition: all .3s ease-in-out;
+                @include m.tablet{
+                    font-size: 18px;
+                }
+            }
+            &.btn-white{
+                a, button{
+                    color: v.$blanco;
+                    border: 1px solid v.$blanco;
+                }
+                a:active,
+                button:active {
+                    background-color: v.$blanco;
+                    color: v.$azul-profundo;
+                    border: 1px solid v.$blanco;
+                }
+
+                @include m.tablet {
+                    a:hover,
+                    button:hover {
+                        background-color: v.$blanco;
+                        color: v.$azul-profundo;
+                        border: 1px solid v.$blanco;
+                    }
+                }
+            }
+
+            &.btn-blue{
+                a, button{
+                    color: v.$azul-profundo;
+                    border: 1px solid v.$azul-profundo;
+                }
+                a:active,
+                button:active {
+                    background-color: v.$azul-profundo;
+                    color: v.$blanco;
+                    border: 1px solid v.$azul-profundo;
+                }
+
+                @include m.tablet {
+                    a:hover,
+                    button:hover {
+                        background-color: v.$azul-profundo;
+                        color: v.$blanco;
+                        border: 1px solid v.$azul-profundo;
+                    }
                 }
             }
         }
@@ -239,6 +303,67 @@
                 /* transform: translateY(-3px); */
                 /* background-color: transparentize($color: v.$negro, $amount: 0.15); */
                 background-color: color.adjust(v.$negro, $alpha: -0.15);
+            }
+        }
+    }
+    &--radious-gold{
+        position: relative;
+        a, button{
+            @include m.slice;
+            @include m.sora-regular;
+            background-color: v.$dorado-calido;
+            color: v.$azul-noche;
+            border: 1px solid v.$dorado-calido;
+            font-size: 16px;
+            letter-spacing: 0px; 
+            text-decoration: none; 
+            position: relative;
+            border-radius: 31px;
+            min-width: 150px;
+            display: inline-block;
+            transition: all .3s ease;
+            text-align: center;
+        }
+        &.btn-big{
+            a,button{
+                padding: 20px 25px;
+            }
+        }
+        &.btn-small{
+            a,button{
+                padding: 15px 25px;
+            }
+        }
+        &.bkg-dark{
+            a:active,
+            button:active {
+                background-color: transparent;
+                color: v.$dorado-calido;
+                border: 1px solid v.$dorado-calido;
+            }
+            @include m.tablet {
+                a:hover,
+                button:hover {
+                    background-color: transparent;
+                    color: v.$dorado-calido;
+                    border: 1px solid v.$dorado-calido;
+                }
+            }
+        }
+        &.bkg-light{
+            a:active,
+            button:active {
+                background-color: v.$azul-noche;
+                color: v.$dorado-calido;
+                border: 1px solid v.$azul-noche;
+            }
+            @include m.tablet {
+                a:hover,
+                button:hover {
+                    background-color: v.$azul-noche;
+                    color: v.$dorado-calido;
+                    border: 1px solid v.$azul-noche;
+                }
             }
         }
     }
@@ -386,11 +511,14 @@
                 border-radius: 20px;
                 min-width: 140px;
                 display: inline-block;
-                padding: 10px 20px;
+                padding: 10px 15px;
                 letter-spacing: 0.28px;
                 background-color: transparent;
                 border: 1px solid v.$blanco;
                 text-shadow: v.$text-shadow;
+            }
+            @include m.desktop{
+                padding: 10px 20px;
             }
             i{
                 font-size: 38px;
@@ -430,6 +558,143 @@
             /* box-shadow: 0 4px 10px rgba(0,0,0,0.20);
             /* transition: all .12s ease; */
         }
+        &.invisible-sesion{
+            @include m.laptop{
+                display: none;
+            }
+        }
+        &-logueado{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            border-right: 1px solid #FFFFFF;
+            padding: 10px 14px 10px 0;
+            position: relative;
+            @include m.tablet{
+                padding: 0;
+                border-right: none;
+            }
+            @include m.laptop{
+                border-right: none;
+            }
+            >a{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                text-decoration: none;
+                @include m.tablet{
+
+                }
+                span{
+                    @include m.sora-medium;
+                    font-size: 16px;
+                    letter-spacing: 0.32px;
+                    text-shadow: v.$text-shadow;
+                    opacity: 1;
+                    gap: 12px;
+                    border-bottom: none;
+                    padding: 0 15px 0 0;
+                    color: v.$blanco;
+                    width: calc(100% - 55px);
+                    flex-grow: 1;
+                    text-align: right;
+                    text-wrap-style: pretty;
+                    text-wrap-mode: wrap;
+                    @include m.tablet{
+                        padding: 0 15px;
+                        font-size: 17px;
+                        letter-spacing: 0.34px;
+                    }
+                    &.dropdown-toggle {
+                        &::after{
+                            filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1));
+                        }
+                        &::after{
+                            filter: drop-shadow(0 0 2px rgb(0, 0, 0, 1)),
+                                    drop-shadow(0 0 4px rgba(0, 0, 0, 1)),
+                                    drop-shadow(0 0 6px rgba(0, 0, 0, 1));
+                        }
+                    }
+                    &:not(.dropdown-item){
+                        &:hover,
+                        &:active{
+                            text-shadow: v.$text-shadow-hover;
+                        }
+                    }
+                }
+                .user-picture{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            ul{
+                list-style: none;
+                padding-left: 0;
+                background-color: v.$blanco;
+                position: relative;
+                border-radius: 15px;
+                width: 162px;
+                position: absolute;
+                top: 65px;
+                &.submenu{
+                    display:none;
+                    pointer-events: none;
+                }
+                li{
+                    text-align: center;
+                    &:not(:last-child){
+                        border-bottom: 1px solid rgba(112, 112, 112, 0.34);
+                        a,button{
+                          color: #262d16;  
+                        }
+                    }
+                    &:last-child{
+                        a,button{
+                            color: #EF512C;
+                        }
+                    }
+                    a,button{
+                        @include m.sora-medium;
+                        font-size: 14px;
+                        letter-spacing: 0px;
+                        opacity: 1;
+                        border-bottom: none;
+                        padding: 8px 25px;
+                        text-decoration: none;
+                        display: inline-block;
+                        pointer-events: auto;
+                    }
+                    button{
+                        background-color: transparent;
+                        border: none;
+                    }
+                }
+                &::after{
+                    content: "";
+                    width: 15px;
+                    height: 12px;
+                    background-color: v.$blanco;
+                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                    position: absolute;
+                    top: -11px;
+                    right: 20px;
+                }
+            }
+            &.visible-desktop{
+                display: none;
+                @include m.laptop{
+                    display: flex;
+                }
+            }
+        }
     }
     &--radious{
          position: relative;
@@ -449,6 +714,9 @@
             display: inline-block;
             transition: all .3s ease;
             width: max-content;
+            @include m.tablet{
+                font-size: 18px;
+            }
         }
         a:active,
         button:active {
@@ -478,29 +746,78 @@
             text-decoration: none; 
             position: relative;
             padding: 17px 24px;
-            background-color: v.$blanco;
-            color: v.$azul-profundo;
-            border: 1px solid v.$azul-profundo;
             border-radius: 31px;
             min-width: 175px;
             display: inline-block;
-            transition: all .3s ease;
+            transition: all .3s ease-in;
             width: max-content;
         }
-        a:active,
-        button:active {
-            background-color: color.adjust(v.$verde-musgo, $alpha: 0);
-            color: v.$blanco;
-            border: 1px solid v.$verde-musgo;
-        }
-
-        @include m.tablet {
-            a:hover,
-            button:hover {
-                border: 1px solid v.$verde-musgo;
-                color: v.$blanco;
-                background-color: color.adjust(v.$verde-musgo, $alpha: 0);
+        &.btn-white__bkg--blue{
+            a, button{
+                background-color: v.$blanco;
+                color: v.$azul-profundo;
+                border: 1px solid v.$blanco;
             }
+            a:active,
+            button:active {
+                background-color: color.adjust(v.$verde-musgo, $alpha: 0);
+                color: v.$blanco;
+                border: 1px solid v.$verde-musgo;
+            }
+
+            @include m.tablet {
+                a:hover,
+                button:hover {
+                    border: 1px solid v.$verde-musgo;
+                    color: v.$blanco;
+                    background-color: color.adjust(v.$verde-musgo, $alpha: 0);
+                }
+            }
+
+        }
+        &.btn--white{
+            a, button{
+                background-color: v.$blanco;
+                color: v.$azul-profundo;
+                border: 1px solid v.$blanco;
+            }
+            a:active,
+            button:active {
+                background-color: v.$azul-noche;
+                color: v.$blanco;
+            }
+
+            @include m.tablet {
+                a:hover,
+                button:hover {
+                background-color: v.$azul-noche;
+                color: v.$blanco;
+                border-color: v.$azul-noche;
+                }
+            }
+
+        }
+        &.btn--transparent{
+            a, button{
+                background-color: transparent;
+                color: v.$blanco;
+                border: 1px solid v.$blanco;
+            }
+            a:active,
+            button:active {
+                background-color: color.adjust(v.$azul-profundo, $alpha: 0);
+                border-color: color.adjust(v.$azul-profundo, $alpha: 0);
+            }
+
+            @include m.tablet {
+                a:hover,
+                button:hover {
+                    background-color: color.adjust(v.$azul-profundo, $alpha: -0.1);
+                    border-color: color.adjust(v.$azul-profundo, $alpha: -0.1);
+                    color: v.$blanco;
+                }
+            }
+
         }
     }
     
@@ -572,10 +889,102 @@
     }
     @include m.laptop{
         gap: 8px;
+        display: none;
+    }
+    &.invisible-icons{
+        display: none
     }
 }
 
+.button-featured-card{
+    a, button{
+        @include m.slice;
+        @include m.sora-regular;
+        font-size: 18px;
+        letter-spacing: 0px; 
+        text-decoration: none; 
+        transition: all ease-in-out .3s;
+        padding: 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        @include m.tablet{
+            font-size: 16px;
+        }
+        @include m.laptop{
+            font-size: 17px;
+        }
+    }
+    &.bkg-yellow{
+        a, button{
+            width: 100%;
+            background-color: v.$dorado-calido;
+            color: v.$azul-noche;
+            border: 1px solid v.$dorado-calido;
+            &:hover,
+            &:active{
+                background-color: darken(v.$dorado-calido, 8%);
+                color: v.$azul-noche;
+                border-color: darken(v.$dorado-calido, 8%);
+            }
+        }
+    }
+    &.bkg-blanco-gris{
+        a, button{
+            width: 100%;
+            background-color: #F8F8F8;
+            color: v.$azul-profundo;
+            border: 1px solid v.$azul-profundo;
+        }
+    }
+}
 
 .scrolled{
     
+}
+
+.curso-item__btn{
+    a{
+        background-color: v.$azul-profundo;
+        color: v.$blanco;
+        @include m.sora-regular;
+        font-size: 16px;
+        letter-spacing: 1.6px;
+        text-align: center;
+        padding: 24px 25px;
+        display: inline-block;
+        text-decoration: none;
+        transition: all ease-in-out .3s;
+        @include m.desktop{
+            font-size: 18px;
+        }
+        &:hover,
+        &:active {
+            background-color: darken(v.$azul-profundo, 8%);
+            border-color: darken(v.$azul-profundo, 8%);
+            transform: translateY(-1px);
+        }
+    }
+    &:not(.convertible){
+        a{
+            text-transform: uppercase;
+            width: 100%;
+        }
+    }
+    &.convertible{
+        a{
+            width: 100%;
+            text-transform: uppercase;
+            border-radius: 0 0 15px 15px;
+            @include m.tablet{
+                width: auto;
+                border-radius: 15px;
+                text-transform: capitalize;
+                min-width: 196px;
+                padding: 18px 20px;
+            }
+        }
+        
+    }
 }
